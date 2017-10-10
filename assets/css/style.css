@@ -14,3 +14,43 @@ body {
     background: #FFFFFF;
     font-family: 'Open Sans', sans-serif;
 }
+
+.main-menu {
+    font-family: 'Nunito', sans-serif;
+    background: #FFFFFF !important;
+    -webkit-box-shadow: 0px -6px 26px -10px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px -6px 26px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px -6px 26px -10px rgba(0, 0, 0, 0.75);
+}
+
+@media (min-width: 890px) {
+    .block-align-right {
+        display: inline-flex;
+        position: absolute;
+        right: 60px;
+    }
+}
+
+input[class*="nav-search-form"] {
+    background: #E2E2E2;
+    border-radius: 4px;
+    border: none;
+}
+
+input[class*="nav-search-form"]:focus {
+    background: #FFFFFF;
+    border-radius: 4px;
+    border: 1px solid #00D054;
+    align-items: center;
+}
+
+.btn-outline-success {
+    color: #00D054;
+    border: 1px solid #00D054;
+}
+
+.btn-outline-success:hover {
+    align-items: center;
+    background: #00D054;
+    border: none;
+}
