@@ -204,3 +204,97 @@ h4.card-title {
     font-family: 'Nunito', sans-serif;
     font-weight: 500;
 }
+
+
+/* Registration */
+
+#registration-container {
+    height: 100vh;
+    background: url("../images/raw/register-background-full.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.form-wrapper {
+    padding: 120px 0 0 0;
+    text-align: center;
+}
+
+h2.register,
+h6 {
+    padding: 6px;
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+}
+
+.account-selector {
+    display: inline-block;
+    margin: 0px auto;
+    padding: 10px;
+}
+
+.organisation-account,
+.individual-account {
+    display: inline-block;
+    text-align: center;
+    width: 230px;
+    height: 230px;
+    border-radius: 4px;
+    -webkit-transition: 500ms;
+    -moz-transition: 500ms;
+    transition: 500ms;
+}
+
+.organisation-account:hover,
+.individual-account:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    -webkit-transition: 500ms;
+    -moz-transition: 500ms;
+    transition: 500ms;
+}
+
+.organisation-account:focus,
+.individual-account:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+h5.account-type-label {
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    position: relative;
+    top: 50px;
+}
+
+.icon-organisation {
+    top: 45px;
+    position: relative;
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+    background: url("../images/icons/organisation-icon.svg") no-repeat;
+}
+
+.icon-individual {
+    top: 45px;
+    position: relative;
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+    background: url("../images/icons/individual-icon.svg") no-repeat;
+}
+
+.separator-container {
+    position: relative;
+    display: inline-block;
+    margin: 0 50px 0 50px;
+}
+
+.separator {
+    margin: 10px;
+    border: 1px solid #FFFFFF;
+    height: 50px;
+}
