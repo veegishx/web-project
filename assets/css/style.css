@@ -1,26 +1,23 @@
-/*
-
-
-    font-family: 'Nunito', sans-serif;
-
-    font-family: 'Roboto', sans-serif;
-
-    font-family: 'Open Sans', sans-serif;
-
-
-*/
-
 body {
     background: #FFFFFF;
     font-family: 'Open Sans', sans-serif;
 }
 
 .main-menu {
+    font-weight: 700;
     font-family: 'Nunito', sans-serif;
     background: #FFFFFF !important;
     -webkit-box-shadow: 0px -6px 26px -10px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px -6px 26px -10px rgba(0, 0, 0, 0.75);
     box-shadow: 0px -6px 26px -10px rgba(0, 0, 0, 0.75);
+}
+
+a.nav-link {
+    color: #5257DF !important;
+}
+
+a.nav-link:hover {
+    color: #f86cb2 !important;
 }
 
 @media (min-width: 890px) {
@@ -53,4 +50,157 @@ input[class*="nav-search-form"]:focus {
     align-items: center;
     background: #00D054;
     border: none;
+}
+
+.homepage-actions {
+    text-align: center;
+    margin: 55px 0px 50px 0px;
+    padding: 28px;
+    font-family: 'Roboto', sans-serif;
+    background: url("../images/raw/space.png") center;
+}
+
+.card-body {
+    text-align: left;
+}
+
+.action-card-individual {
+    text-align: center;
+    display: inline-block;
+    padding: 4px;
+    color: #FFFFFF;
+    height: 250px;
+    width: 45%;
+    border-radius: 2px;
+    margin-right: 20px;
+    background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);
+    /* linear-gradient(135deg, #ee0979 0%,#ff6a00 100%) */
+    -webkit-box-shadow: -1px 2px 28px -3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -1px 2px 28px -3px rgba(0, 0, 0, 0.75);
+    box-shadow: -1px 2px 28px -3px rgba(0, 0, 0, 0.75);
+}
+
+.action-card-donator {
+    text-align: center;
+    display: inline-block;
+    padding: 4px;
+    color: #FFFFFF;
+    height: 250px;
+    width: 45%;
+    border-radius: 2px;
+    margin-left: 20px;
+    background: linear-gradient(135deg, #00bf8f 0%, #001510 100%);
+    /* linear-gradient(135deg, #00bf8f 0%,#001510 100%) */
+    -webkit-box-shadow: -1px 2px 28px -3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -1px 2px 28px -3px rgba(0, 0, 0, 0.75);
+    box-shadow: -1px 2px 28px -3px rgba(0, 0, 0, 0.75);
+}
+
+.action-card-individual:hover,
+.action-card-donator:hover {
+    cursor: pointer;
+    -webkit-box-shadow: 2px 6px 36px -2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 6px 36px -2px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 6px 36px -2px rgba(0, 0, 0, 0.75);
+}
+
+h2.action-card-title {
+    line-height: 3;
+    font-size: 40px;
+    font-weight: 900;
+}
+
+.action-card-container {
+    max-width: 550px;
+    display: inline-block;
+}
+
+span.red {
+    color: #FC032C;
+}
+
+@media (max-width: 1150px) {
+    .homepage-actions {
+        display: flex;
+    }
+    .action-card-individual,
+    .action-card-donator {
+        display: block;
+        margin-bottom: 30px;
+    }
+    .action-card-container {
+        max-width: 375px;
+    }
+    h2.action-card-title {
+        font-size: 25px;
+        line-height: 4;
+    }
+}
+
+@media (max-width: 830px) {
+    .action-card-individual,
+    .action-card-donator {
+        margin-left: 0;
+        margin-right: 0;
+        display: block;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .homepage-actions {
+        display: block;
+    }
+}
+
+@media (max-width: 500px) {
+    h2.action-card-title {
+        font-size: 20px;
+    }
+}
+
+section.current-campaigns {
+    text-align: left;
+    padding: 20px;
+}
+
+section.current-campaigns>h4 {
+    font-weight: 900;
+    font-family: 'Roboto', sans-serif;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    width: 40px;
+    padding: 10px;
+    background: #FC032C;
+    position: relative;
+    border-radius: 2px;
+    display: inline-block;
+}
+
+.carousel-indicators {
+    position: absolute;
+    right: 50px;
+    background-color: #FC032C;
+    max-width: 136px;
+    padding: 16px;
+    border-radius: 4px;
+    margin: -36px 0 0 0;
+    left: auto;
+    bottom: auto;
+}
+
+.card {
+    border: 2px solid #007bff;
+    display: inline-block;
+    margin: 6px;
+}
+
+.card-body {
+    font-family: 'Nunito', sans-serif
+}
+
+h4.card-title {
+    color: #ef112f;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 500;
 }
