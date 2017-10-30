@@ -295,6 +295,50 @@ h5.account-type-label {
 
 .separator {
     margin: 10px;
-    border: 1px solid #FFFFFF;
+    border-left: 2px solid #FFFFFF;
     height: 50px;
+}
+
+.campaign-wrapper {
+    margin-top: 90px;
+}
+
+.campaign-image {
+    text-align: center;
+    width: 100%;
+}
+
+.img-campaign {
+    border-radius: 4px;
+}
+
+.campaign-title {
+    font-size: 45px;
+    font-weight: 900;
+    font-family: 'Roboto', sans-serif;
+}
+
+.campaign-actions {
+    position: fixed;
+    top: 65px;
+    right: 0;
+    padding: 10px;
+    height: 100vh;
+    background-color: #F0F0F0;
+}
+
+.campaign-scrollable-bar {
+    opacity: 0;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #FFFFFF;
+    text-align: left;
+    background-color: #EE0979;
+    min-height: 50px;
+    position: fixed;
+    width: 60%;
+    top: 65px;
+    margin-left: -3%;
+    padding: 10px 0 10px 55px;
 }
