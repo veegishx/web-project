@@ -318,6 +318,11 @@ h5.account-type-label {
     font-family: 'Roboto', sans-serif;
 }
 
+.campaign-donation-message {
+    color: #EE0979;
+    font-family: 'Nunito', sans-serif;
+}
+
 .campaign-actions {
     position: fixed;
     top: 65px;
@@ -335,10 +340,31 @@ h5.account-type-label {
     color: #FFFFFF;
     text-align: left;
     background-color: #EE0979;
-    min-height: 50px;
+    min-height: 75px;
     position: fixed;
     width: 60%;
     top: 65px;
     margin-left: -3%;
-    padding: 10px 0 10px 55px;
+    padding: 22px 0 10px 55px;
+}
+
+.progress-bar {
+    height: 25px;
+    padding: 4px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.progress {
+    background-color: #D8D8D8;
+}
+
+p.quick-message {
+    opacity: 0;
+    color: #FFFFFF;
+    padding: 6px;
+    background-color: #000000;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    width: 211px;
+    margin-top: -45px;
 }

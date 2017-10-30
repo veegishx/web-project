@@ -77,6 +77,7 @@
             </div>
         </nav>
     </header>
+
     <div class="container-fluid">
         <div class="campaign-wrapper">
             <div class="col-lg-7">
@@ -85,6 +86,8 @@
                     <div class="campaign-image">
                         <img src="assets/images/raw/charity.jpg" class="img-fluid img-campaign" alt="campaign image">
                     </div>
+
+                    <h4 class="campaign-overview">Overview</h4>
                     <!-- start slipsum code -->
 
                     <h3>No man, I don't eat pork</h3>
@@ -114,6 +117,17 @@
 
             <aside class="col-lg-5 campaign-actions">
                 <h3 class="campaign-title">Raise awareness about domestic violence.</h3>
+                <p class="quick-message">Help make change happen<span class="red">.</span></p>
+                <p class="campaign-donation-message">You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. </p>
+
+                <div id="campaign-progress-wrapper">
+                    <span style="font-family: 'Open-sans',sans-serif;"><strong>Rs18,750 MUR raised</strong> by 120 backers</span>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                    </div>
+                    <p style="font-family: 'Nunito',sans-serif;">25% of Rs75,000 goal achieved</p>
+                </div>
+
             </aside>
         </div>
     </div>
@@ -127,6 +141,7 @@
             var originalTitle = $('.campaign-title');
             var title = $('.campaign-title').text();
             var titleBar = $('.campaign-scrollable-bar');
+            var message = $('.quick-message');
             $(window).scroll(function() {
                 var windowPosition = $(window).scrollTop();
                 if (windowPosition >= 500) {
@@ -135,6 +150,9 @@
                     originalTitle.css('transition', '500ms');
                     originalTitle.css('opacity', '0');
                     originalTitle.css('margin-top', '-100px');
+                    message.css('transition', '500ms');
+                    message.css('opacity', '1');
+                    message.css('margin-top', '0px');
                     if (titleBar.text().length < 1) {
                         titleBar.append('<span class="fa fa-info-circle" aria-hidden="true"></span> Campaign: ' + title);
                     }
@@ -144,6 +162,9 @@
                     originalTitle.css('transition', '500ms');
                     originalTitle.css('opacity', '1');
                     originalTitle.css('margin-top', '0px');
+                    message.css('transition', '500ms');
+                    message.css('opacity', '0');
+                    message.css('margin-top', '-45px');
                 }
             });
         });
