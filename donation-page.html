@@ -23,6 +23,8 @@
     <!-- Core CSS and scripts -->
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/sweetalert/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="assets/js/sweetalert/sweetalert.min.css">
 
     <!-- Google Fonts -->
     <link href="assets/fonts/fonts.css" rel="stylesheet">
@@ -65,7 +67,9 @@
                         </form>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                My Account
+                                <span id="my-account">
+                                        My Account
+                                </span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="#">Login</a>
@@ -92,26 +96,29 @@
                         <hr>
                         <!-- start slipsum code -->
 
-                        <h3>No man, I don't eat pork</h3>
-                        <p>Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter
-                            that shakes when you put quarters in it? No? Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an infant named Jeb. </p>
+                        <h2>Nullam commodo neque</h2>
+                        Fusce a metus eu diam varius congue nec nec sapien. Vestibulum orci tortor, sollicitudin ac euismod non, placerat ac augue. Nunc convallis accumsan justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec
+                        malesuada vehicula lectus, viverra sodales ipsum gravida nec. Integer gravida nisi ut magna mollis molestie. Nullam pharetra accumsan sagittis. Proin tristique rhoncus orci, eget vulputate nisi sollicitudin et. Quisque lacus augue,
+                        mollis non mollis et, ullamcorper in purus. Morbi et sem orci. Praesent accumsan odio in ante ullamcorper id pellentesque mauris rhoncus. Duis vitae neque dolor. Duis sed purus at eros bibendum cursus nec a nulla. Donec turpis
+                        quam, ultricies id pretium sit amet, gravida eget leo.
 
-                        <h3>Are you ready for the truth?</h3>
-                        <p>Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some
-                            pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing. </p>
+                        <h2>Proin suscipit luctus</h2>
+                        Etiam aliquam sem ac velit feugiat elementum. Nunc eu elit velit, nec vestibulum nibh. Curabitur ultrices, diam non ullamcorper blandit, nunc lacus ornare nisi, egestas rutrum magna est id nunc. Pellentesque imperdiet malesuada quam, et rhoncus eros auctor
+                        eu. Nullam vehicula metus ac lacus rutrum nec fermentum urna congue. Vestibulum et risus at mi ultricies sagittis quis nec ligula. Suspendisse dignissim dignissim luctus. Duis ac dictum nibh. Etiam id massa magna. Morbi molestie
+                        posuere posuere.
 
-                        <h3>Uuummmm, this is a tasty burger!</h3>
-                        <p>Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends,
-                            like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass. </p>
+                        <h2>Donec malesuada vehicula</h2>
+                        Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac
+                        habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum ullamcorper rutrum.
 
-                        <h3>No, motherfucker</h3>
-                        <p>You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly when
-                            we turned on each other, but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature
-                            is lethal but it doesn't hold a candle to man. </p>
+                        <h2>Nullam commodo neque</h2>
+                        Nullam eros mi, mollis in sollicitudin non, tincidunt sed enim. Sed et felis metus, rhoncus ornare nibh. Ut at magna leo. Suspendisse egestas est ac dolor imperdiet pretium. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam porttitor, erat
+                        sit amet venenatis luctus, augue libero ultrices quam, ut congue nisi risus eu purus. Cras semper consectetur elementum. Nulla vel aliquet libero. Vestibulum eget felis nec purus commodo convallis. Aliquam erat volutpat.
 
-                        <h3>I gotta piss</h3>
-                        <p>Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze
-                            my ass, 'cause I'll kill the motherfucker, know what I'm sayin'? </p>
+                        <h2>Integer elementum massa</h2>
+                        Proin ut quam eros. Donec sed lobortis diam. Nulla nec odio lacus. Quisque porttitor egestas dolor in placerat. Nunc vehicula dapibus ipsum. Duis venenatis risus non nunc fermentum dapibus. Morbi lorem ante, malesuada in mollis nec, auctor nec massa.
+                        Aenean tempus dui eget felis blandit at fringilla urna ultrices. Suspendisse feugiat, ante et viverra lacinia, lectus sem lobortis dui, ultricies consectetur leo mauris at tortor. Nunc et tortor sit amet orci consequat semper.
+                        Nulla non fringilla diam.
 
                         <!-- end slipsum code -->
                     </div>
@@ -143,44 +150,7 @@
             </aside>
         </div>
     </div>
-    <script>
-        /*
-         * This is the function that controls all scrolling effects
-         * It's currrently controlling the css styling to be applied to the titles by calculating by how much the page has been
-         * scrolled vertically using the window object and the .scrollTop property
-         */
-        $(document).ready(function() {
-            var originalTitle = $('.campaign-title');
-            var title = $('.campaign-title').text();
-            var titleBar = $('.campaign-scrollable-bar');
-            var message = $('.quick-message');
-            $(window).scroll(function() {
-                var windowPosition = $(window).scrollTop();
-                if (windowPosition >= 500) {
-                    titleBar.css('opacity', '1');
-                    titleBar.css('transition', '500ms');
-                    originalTitle.css('transition', '500ms');
-                    originalTitle.css('opacity', '0');
-                    originalTitle.css('margin-top', '-100px');
-                    message.css('transition', '500ms');
-                    message.css('opacity', '1');
-                    message.css('margin-top', '0px');
-                    if (titleBar.text().length < 1) {
-                        titleBar.append('<span class="fa fa-info-circle" aria-hidden="true"></span> Campaign: ' + title);
-                    }
-                } else {
-                    titleBar.css('transition', '500ms');
-                    titleBar.css('opacity', '0');
-                    originalTitle.css('transition', '500ms');
-                    originalTitle.css('opacity', '1');
-                    originalTitle.css('margin-top', '0px');
-                    message.css('transition', '500ms');
-                    message.css('opacity', '0');
-                    message.css('margin-top', '-45px');
-                }
-            });
-        });
-    </script>
+
 </body>
 
 </html>

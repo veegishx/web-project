@@ -13,11 +13,11 @@ body {
 }
 
 a.nav-link {
-    color: #5257DF !important;
+    color: #5257DF;
 }
 
 a.nav-link:hover {
-    color: #f86cb2 !important;
+    color: #f86cb2;
 }
 
 @media (min-width: 890px) {
@@ -167,6 +167,130 @@ section.current-campaigns>h4 {
     font-family: 'Roboto', sans-serif;
 }
 
+section.about-us {
+    background: url('../images/optimized/section1-dark.png') no-repeat center;
+    background-size: auto auto;
+    background-size: auto auto;
+    background-size: auto auto;
+    background-size: cover;
+    height: auto;
+    padding: 230px 0 0 50px;
+    font-family: 'Open Sans', sans-serif;
+    color: #FFFFFF;
+    margin-left: -1px;
+    text-align: left;
+}
+
+section.about-us>h2 {
+    color: #FFFFFF;
+    font-weight: 900;
+    font-size: 45px;
+    font-family: 'Roboto', sans-serif;
+}
+
+section.about-us>p {
+    max-width: 600px;
+    font-size: 22px;
+}
+
+.team-fadeIn {
+    background: url('../images/raw/team-ps.png') no-repeat center;
+    height: 300px;
+    bottom: 0px;
+    position: relative;
+    background-size: contain;
+    margin: 0 0 0 -55px;
+}
+
+@media(max-width: 650px) {
+    section.about-us {
+        text-align: center;
+        padding: 250px 10px 0 10px;
+    }
+    section.about-us>p {
+        max-width: 400px;
+        color: #FFFFFF;
+        font-size: 16px;
+        padding: 20px;
+        margin: 0px auto;
+    }
+    .team-fadeIn {
+        margin: 0px auto;
+    }
+}
+
+@media(max-width: 400px) {
+    section.about-us>p {
+        width: 340px;
+    }
+}
+
+button.find-more {
+    color: #22E500;
+    background: none;
+    border: 1px solid #22E500;
+    padding: 10px;
+    font-family: 'Nunito', sans-serif
+}
+
+button.find-more:hover {
+    color: #FFFFFF;
+    background-color: #22E500;
+}
+
+section.our-process {
+    background: url('../images/optimized/section22-yellow.png') no-repeat center;
+    background-size: auto auto;
+    background-size: auto auto;
+    background-size: auto auto;
+    background-size: cover;
+    height: 100vh;
+    padding: 50px 50px 0 0px;
+    font-family: 'Open Sans', sans-serif;
+    color: #FFFFFF;
+    margin-top: -1px;
+    text-align: center;
+}
+
+section.our-process>h2 {
+    color: #000000;
+    font-weight: 900;
+    font-size: 45px;
+    margin: 0 0 50px 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+section.our-process>p {
+    max-width: 800px;
+    color: #000000;
+    font-size: 22px;
+    margin: 0px auto;
+    padding: 50px 0 0 0;
+}
+
+section.our-process>img {
+    width: 100%;
+    max-width: 800px;
+}
+
+@media(max-width: 650px) {
+    section.our-process {
+        margin: -3px 0 0 0;
+    }
+    section.our-process>p {
+        max-width: 400px;
+        font-size: 16px;
+        padding: 20px;
+        margin: 0px auto;
+    }
+}
+
+@media(max-width: 400px) {
+    section.about-us>p {
+        width: 340px;
+    }
+}
+
 .carousel-control-next,
 .carousel-control-prev {
     width: 40px;
@@ -313,7 +437,7 @@ h5.account-type-label {
 
 .campaign-image {
     text-align: center;
-    width: 106%;
+    width: 111%;
     position: relative;
     margin-left: -30px;
     padding: 30px;
@@ -322,6 +446,7 @@ h5.account-type-label {
 }
 
 .img-campaign {
+    margin: 0 0 0 -32px;
     border-radius: 4px;
     -webkit-box-shadow: 0px 3px 19px -7px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 3px 19px -7px rgba(0, 0, 0, 0.75);
@@ -421,4 +546,39 @@ p.quick-message {
 .view-profile {
     width: 130px;
     margin: -5px 0 0 3px;
+}
+
+
+/*-- User Authentication --*/
+
+form.register {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: #FFFFFF;
+    max-width: 1000px;
+    margin: 0px auto;
+    text-align: left;
+}
+
+.btn-back {
+    border: none;
+    color: #22E500;
+    border: 2px solid#22E500;
+    background: none;
+    padding: 8px;
+    border-radius: 2px;
+    margin: 8% 0 0 45%;
+    display: none;
+    font-family: 'Nunito', sans-serif;
+}
+
+
+/*-- User Profile --*/
+
+.profile-container {
+    margin: 100px 50px 0 50px;
+}
+
+.profile-container>a.nav-link {
+    color: #FFFFFF;
 }

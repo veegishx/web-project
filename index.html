@@ -23,6 +23,8 @@
     <!-- Core CSS and scripts -->
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/sweetalert/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="assets/js/sweetalert/sweetalert.min.css">
 
     <!-- Google Fonts -->
     <link href="assets/fonts/fonts.css" rel="stylesheet">
@@ -65,7 +67,9 @@
                         </form>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                My Account
+                                <span id="my-account">
+                                        My Account
+                                </span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="#">Login</a>
@@ -234,6 +238,36 @@
             </div>
         </div>
     </section>
+
+    <section class="about-us">
+        <h2 id="about-us-header">Who are we<span class="red">?</span></h2>
+        <p id="about-us-paragraph"><strong>Chanze<span class="red">.</span>org</strong> is a leading crowdfunding platform for needy individuals, Nonprofits and Non-Governmental Organisations. Our main aim is to provide a way for people to support noble causes across the world
+            no matter where they are based.</p>
+
+        <button class="find-more">Find out more <span class="fa fa-angle-right"></span></button>
+
+        <div class="team-fadeIn"></div>
+    </section>
+
+    <section class="our-process">
+        <h2 id="our-proces-header">How does it work<span class="red">?</span></h2>
+        <img id="our-proces-image" src="assets/images/optimized/IdeaProcess.png" alt="how-does-it-work-?">
+        <p id="our-proces-paragraph">At <strong>Chanze<span class="red">.</span>org</strong> we take care of everything, from organization background checks and validations to payment processing so that you can focus on helping others in a hassle-free setting. We partner up with
+            several non-profit and non-governmental organizations and provide them with a platform to reach out to you for help.</p>
+    </section>
+    <script>
+        window.sr = ScrollReveal({
+            reset: true,
+            duration: 1500
+        });
+        sr.reveal('#about-us-header');
+        sr.reveal('#about-us-paragraph');
+        sr.reveal('.find-more');
+        sr.reveal('.team-fadeIn');
+        sr.reveal('#our-proces-header');
+        sr.reveal('#our-proces-image');
+        sr.reveal('#our-proces-paragraph');
+    </script>
 </body>
 
 </html>
