@@ -33,7 +33,33 @@ $(document).ready(function() {
             message.css('opacity', '0');
             message.css('margin-top', '-45px');
         }
+
+        /*
+        if (windowPosition >= 900) {
+            $('#action-sidebar').addClass('release-element');
+        } else {
+            $('#action-sidebar').removeClass('release-element');
+        }
+        */
     });
+
+    //Change navbar Background color and logo on scroll for homepage
+    var initNav = $('.navbar.fixed-top.navbar-expand-lg.justify-content-between.main-menu');
+    var logo = $('#org-logo');
+    $(window).scroll(function() {
+        var windowPosition = $(window).scrollTop();
+        if (document.title == "Crowdfunding Platform Home") {
+            if (windowPosition >= 10) {
+                initNav.addClass('bg-light');
+                logo.attr('src', 'assets/images/optimized/logo.png');
+                initNav.css('transition', '500ms');
+            } else {
+                initNav.removeClass('bg-light');
+                logo.attr('src', 'assets/images/optimized/logo-white.png');
+                initNav.css('transition', '500ms');
+            }
+        }
+    })
 
     //Authentication simulation using localStorage
     var btnSubmit = $("#btn-submit");
@@ -60,6 +86,11 @@ $(document).ready(function() {
 
     if ((localStorage.getItem("myUsername").length > 0)) {
         $("#my-account").text(localStorage.getItem("myUsername"));
+        $('#my-avatar').attr('src', 'assets/images/optimized/default-avatar.jpg');
+    }
+
+    if ((localStorage.getItem("myUsername").length > 0) && (document.title) == "My Profile") {
+
     }
 
     function saveUserDetails() {

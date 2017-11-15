@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Crowdfunding Platform</title>
+    <title>Crowdfunding Platform Home</title>
 
     <!-- 3rd party libraries -->
     <!-- Loading Bootstrap 4 dependencies -->
@@ -18,13 +18,17 @@
 
     <!-- ScrollRevealJS & Normalize CSS -->
     <script src="assets/js/scrollreveal/scrollreveal.min.js"></script>
-    <link rel="stylesheet" href="assets/css/normalize.css">
+
+    <!-- SweetAlert2 -->
+    <script src="assets/js/sweetalert/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="assets/js/sweetalert/sweetalert.min.css">
+
+    <!-- TypeIt -->
+    <script src="assets/js/typeit/typeit.min.js"></script>
 
     <!-- Core CSS and scripts -->
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/sweetalert/sweetalert.min.js"></script>
-    <link rel="stylesheet" href="assets/js/sweetalert/sweetalert.min.css">
 
     <!-- Google Fonts -->
     <link href="assets/fonts/fonts.css" rel="stylesheet">
@@ -36,8 +40,8 @@
 
 <body>
     <header role="navigation">
-        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light justify-content-between main-menu" role="navigation">
-            <a class="navbar-brand" href="index.html"><img src="assets/images/optimized/logo.png" width="200px"></a>
+        <nav class="navbar fixed-top navbar-light navbar-expand-lg justify-content-between main-menu" role="navigation">
+            <a class="navbar-brand" href="index.html"><img id="org-logo" src="assets/images/optimized/logo-white.png" width="200px"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -67,6 +71,7 @@
                         </form>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img id="my-avatar" src="#" class="rounded-circle" width="30px" alt="">
                                 <span id="my-account">
                                         My Account
                                 </span>
@@ -83,6 +88,9 @@
     </header>
 
     <section class="homepage-actions">
+        <div id="welcome-message">
+            <h1 id="message"></h1>
+        </div>
         <div class="action-card-individual">
             <div class="action-card-container">
                 <h2 class="action-card-title">Get in touch with an NGO.</h2>
@@ -268,6 +276,22 @@
         sr.reveal('#our-proces-image');
         sr.reveal('#our-proces-paragraph');
     </script>
+
+    <script>
+        //typedJS homepage animation
+        var typed = new Typed("#message", {
+            typeSpeed: 50,
+            strings: [
+                "Change is just around the corner.",
+                "Chanze<span class='red'>.</span>org is <span style='border-bottom:2px solid #FC032C'>safe ^2000 </span>",
+                "Chanze<span class='red'>.</span>org is <span style='color:#22E500'>secure</span>",
+                "Chanze<span class='red'>.</span>org is <span style='border-bottom:2px solid #FC032C'>secure</span>",
+                "Make <span class='red'>change</span> happen <span class='red'>now</span>.",
+            ],
+            smartBackspace: true // Default value
+        });
+    </script>
+
 </body>
 
 </html>

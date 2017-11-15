@@ -18,16 +18,20 @@
 
     <!-- ScrollRevealJS & Normalize CSS -->
     <script src="assets/js/scrollreveal/scrollreveal.min.js"></script>
-    <link rel="stylesheet" href="assets/css/normalize.css">
+
+    <!-- SweetAlert2 -->
+    <script src="assets/js/sweetalert/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="assets/js/sweetalert/sweetalert.min.css">
+
+    <!-- TypeIt -->
+    <script src="assets/js/typeit/typeit.min.js"></script>
 
     <!-- Core CSS and scripts -->
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/sweetalert/sweetalert.min.js"></script>
-    <link rel="stylesheet" href="assets/js/sweetalert/sweetalert.min.css">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:700|Open+Sans|Roboto:500,900" rel="stylesheet">
+    <link href="assets/fonts/fonts.css" rel="stylesheet">
 
     <!-- Font Awesome icons-->
     <link rel="stylesheet" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -67,6 +71,7 @@
                         </form>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img id="my-avatar" src="#" class="rounded-circle" width="30px" alt="">
                                 <span id="my-account">
                                         My Account
                                 </span>
@@ -87,6 +92,26 @@
             <h2 class="register">
                 Create an account<span class="red">.</span>
             </h2>
+
+            <h6>
+                Select your account type
+            </h6>
+
+            <div class="account-selector">
+                <div class="organisation-account" tabindex="0" id="organization">
+                    <div class="icon-organisation"></div>
+                    <h5 class="account-type-label">Organisation</h5>
+                </div>
+                <div class="separator-container">
+                    <div class="separator"></div>
+                    <p style="color:#FFFFFF">OR</p>
+                    <div class="separator"></div>
+                </div>
+                <div class="individual-account" tabindex="0" id="individual">
+                    <div class="icon-individual"></div>
+                    <h5 class="account-type-label">Individual</h5>
+                </div>
+            </div>
 
             <form class="register" method="POST">
                 <div class="form-row">
@@ -119,26 +144,6 @@
                 </div>
                 <button type="submit" class="btn btn-primary" id="btn-submit">Create Account</button>
             </form>
-
-            <h6>
-                Select your account type
-            </h6>
-
-            <div class="account-selector">
-                <div class="organisation-account" tabindex="0" id="organization">
-                    <div class="icon-organisation"></div>
-                    <h5 class="account-type-label">Organisation</h5>
-                </div>
-                <div class="separator-container">
-                    <div class="separator"></div>
-                    <p style="color:#FFFFFF">OR</p>
-                    <div class="separator"></div>
-                </div>
-                <div class="individual-account" tabindex="0" id="individual">
-                    <div class="icon-individual"></div>
-                    <h5 class="account-type-label">Individual</h5>
-                </div>
-            </div>
         </div>
 
         <button id="back-button" class="btn-back"><span class="fa fa-long-arrow-left" aria-hidden="true"></span>
