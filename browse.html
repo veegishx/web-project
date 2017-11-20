@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Browse Campaigns</title>
+
+    <!-- 3rd party libraries -->
+    <!-- Loading Bootstrap 4 dependencies -->
+    <script src="assets/js/popper/popper.min.js"></script>
+    <script src="assets/js/jquery/jquery.min.js"></script>
+
+    <!-- Loading Bootstrap 4 -->
+    <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css">
+    <script src="assets/js/bootstrap/bootstrap.min.js"></script>
+
+    <!-- ScrollRevealJS & Normalize CSS -->
+    <script src="assets/js/scrollreveal/scrollreveal.min.js"></script>
+
+    <!-- SweetAlert2 -->
+    <script src="assets/js/sweetalert/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="assets/js/sweetalert/sweetalert.min.css">
+
+    <!-- TinyMCE Editor -->
+    <script src="assets/plugins/tinymce/tinymce.min.js"></script>
+
+    <!-- TypeIt -->
+    <script src="assets/js/typeit/typeit.min.js"></script>
+
+    <!-- Core CSS and scripts -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/main.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="assets/fonts/fonts.css" rel="stylesheet">
+
+    <!-- Font Awesome icons-->
+    <link rel="stylesheet" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
+
+</head>
+
+<body>
+    <header role="navigation">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light justify-content-between main-menu" role="navigation">
+            <a class="navbar-brand" href="index.html"><img src="assets/images/optimized/logo.png" width="200px"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Get Started</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Browse</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Organisations</a>
+                    </li>
+
+                    <div class="block-align-right">
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2 nav-search-form" type="text" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                        </form>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img id="my-avatar" src="#" class="rounded-circle" width="30px" alt="">
+                                <span id="my-account">
+                                        My Account
+                                </span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" id="login-link" href="#">Login</a>
+                                <a class="dropdown-item" id="register-link" href="register.html">Register</a>
+                            </div>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            <span class="fa fa-list-alt" aria-hidden="true"></span> Browse
+                            <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span class="fa fa-book" aria-hidden="true"></span> Education
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span class="fa fa-leaf" aria-hidden="true"></span> Environment
+                        </a>
+                    </li>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Sort By</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                              <option>Popularity</option>
+                              <option>Highest Goal</option>
+                              <option>Lowest Goal</option>
+                              <option>Ascending Order</option>
+                              <option>Descending Order</option>
+                            </select>
+                    </div>
+                </ul>
+
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Nav item again</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">One more nav</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Another nav item</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="col-sm-3 col-lg-10 hidden-xs-down bg-faded browse-campaign-container">
+                <h1 class="featured">Featured</h1>
+                <div class="browse-banner">
+                    <div class="funding-goal">Funding Goal: $ 500,000</div>
+                    <h3>Fund Research on Coral Reefs</h3>
+                    <p>
+                        Amid fears for the world's coral reefs, the UN World Heritage Committee has issued its most wide-ranging statement so far on protecting heritage sites from climate. But the problem doesn't end there.
+                    </p>
+                    <button class="fund-this"><a href="#">Fund this project</a></button>
+                </div>
+
+                <div class="browse-campaign-cards">
+                    <div class="col-sm-3 col-lg-3 campaign">
+                        <div class="overlay">
+                            <div class="funding-goal">Funding Goal: $ 130,000</div>
+                            <h2>Water Problems</h2>
+                            <p>India is currently facing a national shortage of clean drinking water</p>
+                            <button class="fund-this-sm"><a href="#">Fund this project</a></button>
+                        </div>
+                        <img src="assets/images/raw/water.jpg" class="test">
+                    </div>
+
+                    <div class="col-sm-3 col-lg-3 campaign">
+                        <div class="overlay">
+                            <div class="funding-goal">Funding Goal: $ 110,000</div>
+                            <h2>Educating children of Africa
+                            </h2>
+                            <p>India is currently facing a national shortage of clean drinking water</p>
+                            <button class="fund-this-sm"><a href="#">Fund this project</a></button>
+                        </div>
+                        <img src="assets/images/raw/children.jpg" class="test">
+                    </div>
+
+                    <div class="col-sm-3 col-lg-3 campaign">
+                        <div class="overlay">
+                            <div class="funding-goal">Funding Goal: $ 110,000</div>
+                            <h2>Rebuilding Gunkanjima, Nagasaki, Japan
+                            </h2>
+                            <p>India is currently facing a national shortage of clean drinking water</p>
+                            <button class="fund-this-sm"><a href="#">Fund this project</a></button>
+                        </div>
+                        <img src="assets/images/raw/japan.jpg" class="test">
+                    </div>
+
+                    <div class="col-sm-3 col-lg-3 campaign">
+                        <div class="overlay">
+                            <div class="funding-goal">Funding Goal: $ 110,000</div>
+                            <h2>Protesting against Nuclear power plants
+                            </h2>
+                            <p>India is currently facing a national shortage of clean drinking water</p>
+                            <button class="fund-this-sm"><a href="#">Fund this project</a></button>
+                        </div>
+                        <img src="assets/images/raw/nuclear.jpg" class="test">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>

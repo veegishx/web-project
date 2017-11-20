@@ -23,8 +23,15 @@
     <script src="assets/js/sweetalert/sweetalert.min.js"></script>
     <link rel="stylesheet" href="assets/js/sweetalert/sweetalert.min.css">
 
+    <!-- TinyMCE Editor -->
+    <script src="assets/plugins/tinymce/tinymce.min.js"></script>
+
     <!-- TypeIt -->
     <script src="assets/js/typeit/typeit.min.js"></script>
+
+    <!-- Mapbox -->
+    <link rel="stylesheet" href="assets/plugins/mapbox/mapbox.css">
+    <script src="assets/plugins/mapbox/mapbox.js"></script>
 
     <!-- Core CSS and scripts -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -77,8 +84,8 @@
                                 </span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Login</a>
-                                <a class="dropdown-item" href="register.html">Register</a>
+                                <a class="dropdown-item" id="login-link" href="#">Login</a>
+                                <a class="dropdown-item" id="register-link" href="register.html">Register</a>
                             </div>
                         </li>
                     </div>
@@ -131,7 +138,7 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <div class="card" style="width: 20rem;">
+                    <div class="card">
                         <img class="card-img-top" src="assets/images/raw/animal-cruelty-resized.jpg" alt="Card image cap">
                         <div class="card-body">
                             <h4 class="card-title">End the Cruel Dog Killing Methods In Mauritius</h4>
@@ -140,7 +147,7 @@
                         </div>
                     </div>
 
-                    <div class="card" style="width: 20rem;">
+                    <div class="card">
                         <img class="card-img-top" src="assets/images/raw/education-resized.jpg" alt="Card image cap">
                         <div class="card-body">
                             <h4 class="card-title">Improve the living conditions in the suburb of Port-Louis</h4>
@@ -149,7 +156,7 @@
                         </div>
                     </div>
 
-                    <div class="card" style="width: 20rem;">
+                    <div class="card">
                         <img class="card-img-top" src="assets/images/raw/monkey-resized.jpg" alt="Card image cap">
                         <div class="card-body">
                             <h4 class="card-title">Protect the monkeys of Mauritius</h4>
@@ -158,7 +165,7 @@
                         </div>
                     </div>
 
-                    <div class="card" style="width: 20rem;">
+                    <div class="card">
                         <img class="card-img-top" src="assets/images/raw/charity-resized.jpg" alt="Card image cap">
                         <div class="card-body">
                             <h4 class="card-title">Raise awareness about domestic violence</h4>
@@ -169,7 +176,7 @@
                 </div>
 
                 <div class="carousel-item">
-                    <div class="card" style="width: 20rem;">
+                    <div class="card">
                         <img class="card-img-top" src="assets/images/raw/animal-cruelty-resized.jpg" alt="Card image cap">
                         <div class="card-body">
                             <h4 class="card-title">End the Cruel Dog Killing Methods In Mauritius</h4>
@@ -178,7 +185,7 @@
                         </div>
                     </div>
 
-                    <div class="card" style="width: 20rem;">
+                    <div class="card">
                         <img class="card-img-top" src="assets/images/raw/education-resized.jpg" alt="Card image cap">
                         <div class="card-body">
                             <h4 class="card-title">Improve the living conditions in the suburb of Port-Louis</h4>
@@ -187,7 +194,7 @@
                         </div>
                     </div>
 
-                    <div class="card" style="width: 20rem;">
+                    <div class="card">
                         <img class="card-img-top" src="assets/images/raw/monkey-resized.jpg" alt="Card image cap">
                         <div class="card-body">
                             <h4 class="card-title">Protect the monkeys of Mauritius</h4>
@@ -196,7 +203,7 @@
                         </div>
                     </div>
 
-                    <div class="card" style="width: 20rem;">
+                    <div class="card">
                         <img class="card-img-top" src="assets/images/raw/charity-resized.jpg" alt="Card image cap">
                         <div class="card-body">
                             <h4 class="card-title">Raise awareness about domestic violence</h4>
@@ -207,7 +214,7 @@
                 </div>
 
                 <div class="carousel-item">
-                    <div class="card" style="width: 20rem;">
+                    <div class="card">
                         <img class="card-img-top" src="assets/images/raw/animal-cruelty-resized.jpg" alt="Card image cap">
                         <div class="card-body">
                             <h4 class="card-title">End the Cruel Dog Killing Methods In Mauritius</h4>
@@ -216,7 +223,7 @@
                         </div>
                     </div>
 
-                    <div class="card" style="width: 20rem;">
+                    <div class="card">
                         <img class="card-img-top" src="assets/images/raw/education-resized.jpg" alt="Card image cap">
                         <div class="card-body">
                             <h4 class="card-title">Improve the living conditions in the suburb of Port-Louis</h4>
@@ -225,7 +232,7 @@
                         </div>
                     </div>
 
-                    <div class="card" style="width: 20rem;">
+                    <div class="card">
                         <img class="card-img-top" src="assets/images/raw/monkey-resized.jpg" alt="Card image cap">
                         <div class="card-body">
                             <h4 class="card-title">Protect the monkeys of Mauritius</h4>
@@ -234,7 +241,7 @@
                         </div>
                     </div>
 
-                    <div class="card" style="width: 20rem;">
+                    <div class="card">
                         <img class="card-img-top" src="assets/images/raw/charity-resized.jpg" alt="Card image cap">
                         <div class="card-body">
                             <h4 class="card-title">Raise awareness about domestic violence</h4>
@@ -262,6 +269,26 @@
         <img id="our-proces-image" src="assets/images/optimized/IdeaProcess.png" alt="how-does-it-work-?">
         <p id="our-proces-paragraph">At <strong>Chanze<span class="red">.</span>org</strong> we take care of everything, from organization background checks and validations to payment processing so that you can focus on helping others in a hassle-free setting. We partner up with
             several non-profit and non-governmental organizations and provide them with a platform to reach out to you for help.</p>
+    </section>
+
+    <section class="security">
+        <img src="assets/images/optimized/money.png">
+        <h2 id="security-header">Security</span>
+        </h2>
+        <p id="security-paragraph">Being a level 1 PCI DSS(Payment Card Industry Data Security Standard) Compliant Merchant, you can be sure that your transactions are securely processed. We use strong AES-256 Encryption across all our services to keep your data secure.</p>
+    </section>
+
+    <section class="payment">
+        <img src="assets/images/optimized/payment.svg">
+        <h2 id="payment-header">Easy Payment Integration</span>
+        </h2>
+        <p id="payment-paragraph">We offer multiple options to carry out transactions. You don't need to worry about not having an account with a particular banking service since we have partnered with some of the most popular financial organizations in the world.</p>
+    </section>
+
+    <section class="location">
+        <iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBsukpvgjfBOVzTAhswIJ4fpodAOvhzzjg
+          &q=Faculty+of+Engineering,Moka+Mauritius" allowfullscreen>
+      </iframe>
     </section>
     <script>
         window.sr = ScrollReveal({
@@ -291,6 +318,8 @@
             smartBackspace: true // Default value
         });
     </script>
+
+
 
 </body>
 

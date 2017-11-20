@@ -101,4 +101,21 @@ $(document).ready(function() {
         console.log(localStorage.getItem("myEmail"));
     }
 
+    // Once authenticated append profile link to navbar submenu
+    if (localStorage.getItem("myUsername").length > 0) {
+        $('.dropdown-menu').append("<a class='dropdown-item' id='profile-link' href='profile.html'>My Profile</a>");
+        $('.dropdown-menu').append("<a class='dropdown-item' id='logout-link' href='#'>Logout</a>");
+        $('#register-link').remove();
+        $('#login-link').remove();
+        $('#logout-link').click(function() {
+            logout();
+        });
+    }
+
+    function logout() {
+        localStorage.removeItem('myEmail');
+        localStorage.removeItem('myUsername');
+        window.location.replace('index.html');
+    }
+
 });
