@@ -938,7 +938,6 @@ p.quick-message {
 #particles-js {
     position: relative;
     padding: 2px;
-    width: 100%;
     min-height: 50vh;
     background-image: url("");
     background-repeat: no-repeat;
@@ -1165,11 +1164,21 @@ button.fund-this-sm:hover~.browse-campaign-container {
     top: 0
 }
 
-.donate-button {
+.donate-button,
+.publish-button {
     background: none;
     border: 1px solid #FC032C;
     padding: 10px;
     border-radius: 4px;
+}
+
+.publish-button {
+    width: 100%;
+    background: none;
+    border: 1px solid #FC032C;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 25px;
 }
 
 .location>h1 {
