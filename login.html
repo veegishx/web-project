@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>User Registration</title>
+    <title>User Login</title>
 
     <!-- 3rd party libraries -->
     <!-- Loading Bootstrap 4 dependencies -->
@@ -93,35 +93,11 @@
     <div id="registration-container">
         <div class="form-wrapper">
             <h2 class="register">
-                Create an account<span class="red">.</span>
+                Login<span class="red">.</span>
             </h2>
-
-            <h6>
-                Select your account type
-            </h6>
-
-            <div class="account-selector">
-                <div class="organisation-account" tabindex="0" id="organization">
-                    <div class="icon-organisation"></div>
-                    <h5 class="account-type-label">Organisation</h5>
-                </div>
-                <div class="separator-container">
-                    <div class="separator"></div>
-                    <p style="color:#FFFFFF">OR</p>
-                    <div class="separator"></div>
-                </div>
-                <div class="individual-account" tabindex="0" id="individual">
-                    <div class="icon-individual"></div>
-                    <h5 class="account-type-label">Individual</h5>
-                </div>
-            </div>
 
             <form class="register" method="POST">
                 <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="inputEmail4">Email</label>
-                        <input type="email" class="form-control" id="inputEmail4" placeholder="Enter your Email">
-                    </div>
 
                     <div class="form-group col-md-6">
                         <label for="inputUsername4">Username</label>
@@ -131,21 +107,8 @@
                         <label for="inputPassword4">Password</label>
                         <input type="password" class="form-control" id="inputPassword4" placeholder="Enter a Password">
                     </div>
-
-                    <div class="form-group col-md-6">
-                        <label for="inputPassword5">Confirm Password</label>
-                        <input type="password" class="form-control" id="inputPassword5" placeholder="Re-type your Password">
-                    </div>
                 </div>
-
-                <div class="form-group">
-                    <div class="form-check">
-                        <label class="form-check-label">
-                          <input class="form-check-input" type="checkbox" required> Check here to indicate that you have read and agree to the terms and conditions of the Chanze.org User Agreement
-                        </label>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary" id="btn-submit">Create Account</button>
+                <button type="submit" class="btn btn-primary" id="btn-submit">Login</button>
             </form>
         </div>
 

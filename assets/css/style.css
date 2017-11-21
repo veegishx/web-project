@@ -936,9 +936,10 @@ p.quick-message {
 }
 
 #particles-js {
-    position: absolute;
+    position: relative;
+    padding: 2px;
     width: 100%;
-    height: 60%;
+    min-height: 50vh;
     background-image: url("");
     background-repeat: no-repeat;
     background-size: cover;
@@ -965,6 +966,16 @@ p.quick-message {
 #particles-js>h6 {
     margin: 10px 0 0 120px;
     color: #FFFFFF;
+    font-weight: 900;
+    font-family: 'Roboto', sans-serif;
+}
+
+.special {
+    padding-top: 40px;
+    padding-left: 40px;
+}
+
+.special>h2 {
     font-weight: 900;
     font-family: 'Roboto', sans-serif;
 }
@@ -1141,4 +1152,26 @@ button.fund-this-sm:hover~.campaign>img {
 
 button.fund-this-sm:hover~.browse-campaign-container {
     background-color: #00ff00;
+}
+
+#sortBy:focus {
+    color: #FFFFFF;
+    background-color: #aaa;
+    border: none;
+}
+
+.particles-js-canvas-el {
+    position: absolute;
+    top: 0
+}
+
+.donate-button {
+    background: none;
+    border: 1px solid #FC032C;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.location>h1 {
+    text-align: center;
 }
