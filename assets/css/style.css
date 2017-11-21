@@ -1174,4 +1174,8 @@ button.fund-this-sm:hover~.browse-campaign-container {
 
 .location>h1 {
     text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    text-align: center;
+    padding: 10px;
 }
