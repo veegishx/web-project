@@ -612,13 +612,20 @@ label {
     border-bottom: 1px solid #FC032C;
 }
 
+.form-control-select:focus {
+    border: 1px solid #FC032C;
+    background: rgb(255, 255, 255);
+}
+
 form.register {
+    display: none;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     color: #FFFFFF;
     max-width: 1000px;
     margin: 0px auto;
     text-align: left;
+    transition: 500ms;
 }
 
 button#btn-submit {
@@ -664,8 +671,9 @@ button#btn-submit:hover {
 .individual-account {
     display: inline-block;
     text-align: center;
-    width: 230px;
-    height: 230px;
+    width: 140px;
+    height: 120px;
+    padding: 10px;
     border-radius: 4px;
     -webkit-transition: 500ms;
     -moz-transition: 500ms;
@@ -690,28 +698,33 @@ h5.account-type-label {
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     position: relative;
-    top: 50px;
+    top: -35px;
 }
 
 .icon-organisation {
-    top: 45px;
-    position: relative;
     height: 100px;
-    width: 100px;
+    width: 100%;
     display: inline-block;
     background: url("../images/icons/organisation-icon.svg") no-repeat;
 }
 
 .icon-individual {
-    top: 45px;
-    position: relative;
     height: 100px;
-    width: 100px;
+    width: 100%;
     display: inline-block;
     background: url("../images/icons/individual-icon.svg") no-repeat;
 }
 
+.sm {
+    max-width: 50px;
+}
+
+.md {
+    max-width: 100px;
+}
+
 .separator-container {
+    top: -70px;
     position: relative;
     display: inline-block;
     margin: 0 50px 0 50px;
@@ -720,7 +733,7 @@ h5.account-type-label {
 .separator {
     margin: 10px;
     border-left: 2px solid #FFFFFF;
-    height: 50px;
+    height: 25px;
 }
 
 .campaign-wrapper {

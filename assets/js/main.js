@@ -48,7 +48,7 @@ $(document).ready(function() {
     var logo = $('#org-logo');
     $(window).scroll(function() {
         var windowPosition = $(window).scrollTop();
-        if (document.title == "Crowdfunding Platform Home") {
+        if (document.getElementById('home') != null) {
             if (windowPosition >= 10) {
                 initNav.addClass('bg-light');
                 logo.attr('src', 'assets/images/optimized/logo.png');
@@ -61,7 +61,25 @@ $(document).ready(function() {
         }
     })
 
-    //Authentication simulation using localStorage
+    //Adding opaque navbar with default logo
+    if (document.getElementById('home') == null) {
+        initNav.addClass('bg-light');
+        logo.attr('src', 'assets/images/optimized/logo.png');
+    }
+
+    $('.organisation-account').click(function() {
+        $('#org-register-form').toggle('slide', { direction: "right" }, 1000);
+        $('#user-register-form').hide();
+    });
+
+    $('.individual-account').click(function() {
+        $('#user-register-form').toggle('slide', { direction: "right" }, 1000);
+        $('#org-register-form').hide();
+    });
+
+    /*
+    //Authentication simulation using localStorage for front end demo
+
     var btnSubmit = $("#btn-submit");
 
     btnSubmit.click(function() {
@@ -103,8 +121,8 @@ $(document).ready(function() {
 
     // Once authenticated append profile link to navbar submenu
     if (localStorage.getItem("myUsername").length > 0) {
-        $('.dropdown-menu').append("<a class='dropdown-item' id='profile-link' href='profile.html'>My Profile</a>");
-        $('.dropdown-menu').append("<a class='dropdown-item' id='logout-link' href='#'>Logout</a>");
+        $('.dropdown-menu').append("<a class='dropdown-item' id='profile-link' href='profile.php'>My Profile</a>");
+        $('.dropdown-menu').append("<a class='dropdown-item' id='logout-link' href='logout.php'>Logout</a>");
         $('#register-link').remove();
         $('#login-link').remove();
         $('#logout-link').click(function() {
@@ -117,5 +135,6 @@ $(document).ready(function() {
         localStorage.removeItem('myUsername');
         window.location.replace('index.html');
     }
+    */
 
 });
