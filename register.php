@@ -70,31 +70,31 @@
                 </div>
             </div>
 
-            <form class="register" id="org-register-form" method="POST" action="authenticaton/organisation/register.php">
+            <form class="register" id="org-register-form" method="POST" action="authentication/organisation/process.php">
             <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputOrgName">Organisation Name</label>
-                        <input type="text" class="form-control" id="inputOrgName" placeholder="Enter Organisation Name" required>
+                        <input type="text" class="form-control" name="inputOrgName" placeholder="Enter Organisation Name" required>
                     </div>
 
                     <div class="form-group col-md-6">
                         <label for="inputOrgEmail">Organisation Email</label>
-                        <input type="email" class="form-control" id="inputOrgEmail" placeholder="Enter Organisation Email" required>
+                        <input type="email" class="form-control" name="inputOrgEmail" placeholder="Enter Organisation Email" required>
                     </div>
 
                     <div class="form-group col-md-6">
                         <label for="inputOrgPassword">Password</label>
-                        <input type="password" class="form-control" id="inputOrgPassword" placeholder="Enter a Password" required>
+                        <input type="password" class="form-control" name="inputOrgPassword" placeholder="Enter a Password" required>
                     </div>
 
                     <div class="form-group col-md-6">
                         <label for="inputOrgPassword2">Confirm Password</label>
-                        <input type="password" class="form-control" id="inputOrgPassword2" placeholder="Re-type your Password" required>
+                        <input type="password" class="form-control" name="inputOrgPassword2" placeholder="Re-type your Password" required>
                     </div>
 
                     <div class="form-group col-md-6">
                         <label for="inputOrgLocation">Location</label>
-                        <select class="form-control form-control-select" id="inputOrgLocation" required>
+                        <select class="form-control form-control-select" name="inputOrgLocation" required>
                             <option value="AF">Afghanistan</option>
                             <option value="AX">Åland Islands</option>
                             <option value="AL">Albania</option>
@@ -349,7 +349,7 @@
 
                      <div class="form-group col-md-6">
                         <label for="inputOrgDescription">Tell us a bit about your organisation</label>
-                        <textarea class="form-control" id="inputOrgDescription" rows="3" placeholder="Write a short introduction about your organisation to help your target audience know you better."></textarea>
+                        <textarea class="form-control" name="inputOrgDescription" rows="3" placeholder="Write a short introduction about your organisation to help your target audience know you better."></textarea>
                     </div>
                 </div>
 
@@ -365,7 +365,7 @@
 
 
             <!-- User Registration Form-->
-            <form class="register" id="user-register-form" method="POST" action="authenticaton/user/register.php">
+            <form class="register" id="user-register-form" method="POST" action="authenticaton/user/process.php">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Email</label>

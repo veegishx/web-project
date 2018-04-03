@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors',1);
+error_reporting(E_ALL | E_STRICT);
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 $conn = mysqli_connect("localhost",'root','','chanze');
 $errors = [];
 // Check connection
@@ -23,14 +26,14 @@ if (mysqli_connect_errno())  {
     $orgSql = "CREATE TABLE IF NOT EXISTS organisations (
         orgId int NOT NULL AUTO_INCREMENT,
         userId int,
-        orgName VARCHAR(20) NOT NULL,
-        email VARCHAR(30) NOT NULL,
+        orgName VARCHAR(100) NOT NULL,
+        email VARCHAR(50) NOT NULL,
         orgDesc VARCHAR(500) NOT NULL,
         orgPassword varchar(255) NOT NULL,
         orgLogo VARCHAR(50),
         created_at timestamp,
         updated_at timestamp,
-        orglocation varchar(30),
+        orgLocation varchar(30),
         PRIMARY KEY(orgId),
         FOREIGN KEY(userId)
          REFERENCES users

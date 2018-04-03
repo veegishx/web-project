@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+ session_start();
+?>
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -47,8 +49,7 @@
 
 <body>
 <?php include 'includes/header.php'; ?>
-
-    <div id="home">
+<div id="home">
     <section class="homepage-actions">
         <div id="welcome-message">
             <h1 id="message"></h1>
@@ -247,6 +248,14 @@
       </iframe>
     </section>
     </div>
+    <script>
+        <?php
+            if(!empty($_SESSION['message'])) {
+                echo $_SESSION['message'];
+                unset($_SESSION['message']);
+            }
+     ?>
+    </script>
     <script>
         window.sr = ScrollReveal({
             reset: true,
