@@ -43,9 +43,8 @@
     <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
 
 </head>
-
-<body>
 <?php include 'includes/header.php'; ?>
+<body>
 
     <div class="container-fluid">
         <div class="row">

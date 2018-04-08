@@ -26,7 +26,7 @@ if (mysqli_connect_errno())  {
     $orgSql = "CREATE TABLE IF NOT EXISTS `organisations` (
         orgId int NOT NULL AUTO_INCREMENT,
         userName VARCHAR(200) NOT NULL,
-        orgName VARCHAR(100) NOT NULL,
+        orgName VARCHAR(200) NOT NULL,
         email VARCHAR(200) NOT NULL,
         orgDesc VARCHAR(1500) NOT NULL,
         orgPassword varchar(255) NOT NULL,
@@ -54,22 +54,29 @@ if (mysqli_connect_errno())  {
 
     $campaignSql = "CREATE TABLE IF NOT EXISTS `campaigns` (
         campaignId int NOT NULL AUTO_INCREMENT,
-        userId int NOT NULL,
+        campaignTitle VARCHAR(150) NOT NULL,
+        campaignBody VARCHAR(20000) NOT NULL,
+        campaignGoal MEDIUMINT NOT NULL,
+        campaignCategory VARCHAR(30),
+        campaignFeaturedImage VARCHAR(1000),
         orgId int NOT NULL,
-        orgName VARCHAR(20) NOT NULL,
+        orgName VARCHAR(200) NOT NULL,
         email VARCHAR(200) NOT NULL,
-        orgPassword varchar(255) NOT NULL,
-        orgLogo VARCHAR(50),
+        campaignStatus TINYINT(1),
         created_at timestamp,
         updated_at timestamp,
-        orglocation varchar(30),
         PRIMARY KEY(campaignId),
-        FOREIGN KEY(userId) 
-         REFERENCES users(userId)
-         ON DELETE CASCADE,
 
         FOREIGN KEY(orgId)
          REFERENCES organisations(orgId)
+         ON DELETE CASCADE,
+
+        FOREIGN KEY(orgName)
+         REFERENCES organisations(orgName)
+         ON DELETE CASCADE,
+
+        FOREIGN KEY(email)
+         REFERENCES organisations(email)
          ON DELETE CASCADE
     )";
 

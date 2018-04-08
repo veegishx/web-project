@@ -1228,3 +1228,22 @@ button.fund-this-sm:hover~.browse-campaign-container {
 .alert-danger>a:visited {
     color: #ffffff;
 }
+
+.campaign-heading {
+    font-size: 30px;
+    font-weight: 900;
+    font-family: 'Roboto', sans-serif;
+}
+
+input[class*="campaign-heading"] {
+    background: #E2E2E2;
+    border-radius: 4px;
+    border: none;
+}
+
+input[class*="campaign-heading"]:focus {
+    background: #FFFFFF;
+    border-radius: 4px;
+    border: 1px solid #00D054;
+    align-items: center;
+}

@@ -49,4 +49,53 @@ function getOrgDescription() {
     return $orgDesc;
 }
 
+function getMyActiveCampaignsData() {
+    global $conn;
+    $email = $_SESSION['email'];
+    $query = "SELECT `*` FROM `campaigns` WHERE `email` = '$email' AND  `campaignStatus` = '1'";
+    $result = $conn->query($query);
+
+    if($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $rows[] = $row;
+        }
+    } else {
+        $rows = "";
+    }
+
+    return $rows;
+}
+
+function getAllCampaignsData() {
+    global $conn;
+    $query = "SELECT `*` FROM `campaigns` WHERE `campaignStatus` = '1'";
+    $result = $conn->query($query);
+
+    if($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $rows[] = $row;
+        }
+    } else {
+        $rows = "";
+    }
+
+    return $rows;
+}
+
+function getAllOrganisationsData() {
+    global $conn;
+    $query = "SELECT `*` FROM `organisations`";
+    $result = $conn->query($query);
+
+    if($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $rows[] = $row;
+        }
+    } else {
+        $rows = "";
+    }
+
+    return $rows;
+}
+
 ?>

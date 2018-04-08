@@ -1,5 +1,6 @@
 <?php 
 include 'config/dbconnect.php';
+session_start();
 ?>
 <header role="navigation">
         <nav class="navbar fixed-top navbar-light navbar-expand-lg justify-content-between main-menu" role="navigation">
@@ -23,7 +24,7 @@ include 'config/dbconnect.php';
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Organisations</a>
+                        <a class="nav-link" href="organisations.php">Organisations</a>
                     </li>
 
 
@@ -44,7 +45,6 @@ include 'config/dbconnect.php';
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <?php 
-                                session_start();
                                 if(!empty($_SESSION['email'])) {
                                     echo '<a class="dropdown-item" href="profile.php">My Profile</a>';
                                     echo '<a class="dropdown-item" id="louout-link" href="logout.php">Logout</a>';

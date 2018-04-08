@@ -1,7 +1,3 @@
-<?php
- include 'includes/config/dbconnect.php';
- include 'includes/functions.php';
- ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,9 +43,12 @@
     <link rel="stylesheet" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 
 </head>
-
+<?php
+ include 'includes/config/dbconnect.php';
+ include 'includes/functions.php';
+ include 'includes/header.php';
+ ?>
 <body>
-<?php include 'includes/header.php'; ?>
 <div id="home">
     <section class="homepage-actions">
         <div id="welcome-message">

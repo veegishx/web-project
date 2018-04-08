@@ -1,4 +1,10 @@
-<?php include 'includes/functions.php' ?>
+<?php
+ include 'includes/functions.php';
+ include 'includes/header.php';
+ if(empty($_SESSION['email'])) {
+    header("location: login.php");
+ } 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,7 +49,7 @@
 </head>
 
 <body>
-<?php include 'includes/header.php'; ?>
+
 
     <div class="top-container">
         <img src="assets/images/optimized/default-avatar.jpg" width="200px" class="rounded float-left">
@@ -118,18 +124,36 @@
                 </div>
 
                 <div class="col-md-8" style="display:inline-block">
-                    <textarea id="campaign-body-editor">
-                                <p style="text-align: center; font-size: 15px;">
-                                        <img title="chanze.org logo" src="assets/images/optimized/logo.png" alt="TinyMCE Logo" width="200px">
-                                </p>
-                                <h1 style="text-align: center;font-family: 'Roboto', sans-serif;font-weight: 500;">Welcome to the campaign editor!</h1>
-                                <h2>This is a basic campaign title</h2>
-                                <p>This is a <b>paragraph</b> placeholder describing you campaign.</p>
-                                <p>You might want to add a few pictures or videos</p>
-                                <p><img src="assets/images/raw/charity-resized.jpg" alt="" data-mce-selected="1" height="210" width="316"><br data-mce-bogus="1"></p>
-                                <h3>Or even a few links</h3>
-                                <p><a href="https://facebook.com">Join us on facebook</a> & <a href="https://twitter.com">Follow us on Twitter</a> for updates!</p>
+                    <form method="POST" action="campaigns/process.php">
+                        <div class="form-group col-md-6">
+                            <label for="inputCampaignTitle">Campaign Title</label>
+                            <input type="text" class="campaign-heading form-control-lg" name="inputCampaignTitle" placeholder="Enter Your Campaign Title" required>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail">Campaign Goal</label>
+                            <input type="text" class="campaign-heading form-control-lg" name="inputCampaignGoal" placeholder="Enter Your Campaign Goal" required>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail">Campaign Image</label>
+                            <input type="text" class="campaign-heading form-control-lg" name="inputCampaignImage" placeholder="Enter Your Campaign Image URL" required>
+                        </div>
+
+                        <textarea id="campaign-body-editor" name="inputCampaignBody" required>
+                            <p style="text-align: center; font-size: 15px;">
+                                    <img title="chanze.org logo" src="assets/images/optimized/logo.png" alt="TinyMCE Logo" width="200px">
+                            </p>
+                            <h1 style="text-align: center;font-family: 'Roboto', sans-serif;font-weight: 500;">Welcome to the campaign editor!</h1>
+                            <h2>This is a basic campaign title</h2>
+                            <p>This is a <b>paragraph</b> placeholder describing you campaign.</p>
+                            <p>You might want to add a few pictures or videos</p>
+                            <p><img src="assets/images/raw/charity-resized.jpg" alt="" data-mce-selected="1" height="210" width="316"><br data-mce-bogus="1"></p>
+                            <h3>Or even a few links</h3>
+                            <p><a href="https://facebook.com">Join us on facebook</a> & <a href="https://twitter.com">Follow us on Twitter</a> for updates!</p>
                         </textarea>
+                        <button type="submit">POST</button>
+                    </form>
                 </div>
 
                 <div class="col-md-4" style="display:inline-block;float:right">
@@ -152,7 +176,15 @@
             </div>
 
             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                <p><?php echo getOrgDescription() ?></p>
+                <p><?php echo getOrgDescription(); ?></p>
+                <p>
+                    <?php
+                        $campaigns = getMyActiveCampaignsData();
+                        foreach($campaigns as $campaign) {
+                            echo "<a href='campaign.php?id=" . $campaign['campaignId'] ."'>" . $campaign['campaignTitle'] . "</a></br>";
+                        }
+                    ?>
+                </p>
             </div>
 
             <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
