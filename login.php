@@ -1,3 +1,12 @@
+<?php include 'includes/config/dbconnect.php'; ?>
+<?php
+session_start();
+if(!empty($_SESSION['email'])) {
+    header("location: index.php");
+} else {
+    unset($_SESSION['email']);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,24 +51,30 @@
 </head>
 
 <body>
-<?php include 'includes/header.php'; ?>
 
-    <div id="registration-container">
+    <div id="login-container">
         <div class="form-wrapper">
-            <h2 class="register">
+            <h2 class="login">
                 Login<span class="red">.</span>
             </h2>
-
-            <form class="register" method="POST">
+            <?php
+            if(!empty($_SESSION['message'])) {
+                echo "<div class='alert alert-danger' role='alert'>";
+                echo $_SESSION['message'];
+                echo "</div>";
+                unset($_SESSION['message']);
+            }
+            ?>
+            <form class="login" method="POST" action="authentication/auth.php">
                 <div class="form-row">
 
                     <div class="form-group col-md-6">
-                        <label for="inputUsername4">Username</label>
-                        <input type="text" class="form-control" id="inputUsername" placeholder="Pick a username" required>
+                        <label for="inputEmail">Email</label>
+                        <input type="text" class="form-control" name="inputEmail" placeholder="Enter Your Email" required>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="inputPassword4">Password</label>
-                        <input type="password" class="form-control" id="inputPassword4" placeholder="Enter a Password" required>
+                        <label for="inputPassword">Password</label>
+                        <input type="password" class="form-control" name="inputPassword" placeholder="Enter Your Password" required>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary" id="btn-submit">Login</button>

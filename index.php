@@ -1,8 +1,9 @@
+<?php
+ include 'includes/config/dbconnect.php';
+ include 'includes/functions.php';
+ ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php
- session_start();
-?>
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />

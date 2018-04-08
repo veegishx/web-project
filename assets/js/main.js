@@ -67,16 +67,6 @@ $(document).ready(function() {
         logo.attr('src', 'assets/images/optimized/logo.png');
     }
 
-    $('.organisation-account').click(function() {
-        $('#org-register-form').toggle('slide', { direction: "right" }, 1000);
-        $('#user-register-form').hide();
-    });
-
-    $('.individual-account').click(function() {
-        $('#user-register-form').toggle('slide', { direction: "right" }, 1000);
-        $('#org-register-form').hide();
-    });
-
     /*
     //Authentication simulation using localStorage for front end demo
 

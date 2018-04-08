@@ -1,4 +1,6 @@
-<?php include 'config/dbconnect.php' ?>
+<?php 
+include 'config/dbconnect.php';
+?>
 <header role="navigation">
         <nav class="navbar fixed-top navbar-light navbar-expand-lg justify-content-between main-menu" role="navigation">
             <a class="navbar-brand" href="index.php"><img id="org-logo" src="assets/images/optimized/logo-white.png" width="200px"></a>
@@ -41,8 +43,17 @@
                                 </span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" id="login-link" href="login.php">Login</a>
-                                <a class="dropdown-item" id="register-link" href="register.php">Register</a>
+                            <?php 
+                                session_start();
+                                if(!empty($_SESSION['email'])) {
+                                    echo '<a class="dropdown-item" href="profile.php">My Profile</a>';
+                                    echo '<a class="dropdown-item" id="louout-link" href="logout.php">Logout</a>';
+                                } else {
+                                    echo '<a class="dropdown-item" id="login-link" href="login.php">Login</a>';
+                                    echo '<a class="dropdown-item" id="register-link" href="register.php">Register</a>';
+                                }
+                            
+                            ?>  
                             </div>
                         </li>
                     </div>

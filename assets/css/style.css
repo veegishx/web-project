@@ -569,7 +569,8 @@ h4.card-title {
 
 /* Registration */
 
-#registration-container {
+#registration-container,
+#login-container {
     height: auto;
     min-height: 100vh;
     background: url("../images/raw/register-background-full.jpg") no-repeat center center fixed;
@@ -580,11 +581,12 @@ h4.card-title {
 }
 
 .form-wrapper {
-    padding: 120px 10px 10px 10px;
+    padding: 0px 10px 10px 10px;
     text-align: center;
 }
 
 h2.register,
+h2.login,
 h6 {
     padding: 6px;
     color: #FFFFFF;
@@ -619,6 +621,16 @@ label {
 
 form.register {
     display: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: #FFFFFF;
+    max-width: 1000px;
+    margin: 0px auto;
+    text-align: left;
+    transition: 500ms;
+}
+
+form.login {
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     color: #FFFFFF;
@@ -1200,4 +1212,19 @@ button.fund-this-sm:hover~.browse-campaign-container {
     font-weight: 900;
     text-align: center;
     padding: 10px;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #FC032C;
+    border: none;
+    max-width: 800px;
+    margin: 0px auto;
+    font-size: 18px;
+    margin-bottom: 60px;
+}
+
+.alert-danger>a,
+.alert-danger>a:visited {
+    color: #ffffff;
 }

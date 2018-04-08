@@ -9,12 +9,12 @@ if (mysqli_connect_errno())  {
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
 } else {
     //CREATE USERS TABLE
-    $userSql = "CREATE TABLE IF NOT EXISTS users (
+    $userSql = "CREATE TABLE IF NOT EXISTS `users` (
         userId int NOT NULL AUTO_INCREMENT,
-        userName VARCHAR(20) NOT NULL,
-        firstName VARCHAR(20) NOT NULL,
-        lastName VARCHAR(20) NOT NULL,
-        email VARCHAR(30) NOT NULL,
+        userName VARCHAR(200) NOT NULL,
+        firstName VARCHAR(20),
+        lastName VARCHAR(20),
+        email VARCHAR(200) NOT NULL,
         userPassword varchar(255) NOT NULL,
         avatar VARCHAR(50),
         created_at timestamp,
@@ -23,29 +23,41 @@ if (mysqli_connect_errno())  {
         PRIMARY KEY(userId)
     )";
         
-    $orgSql = "CREATE TABLE IF NOT EXISTS organisations (
+    $orgSql = "CREATE TABLE IF NOT EXISTS `organisations` (
         orgId int NOT NULL AUTO_INCREMENT,
-        userId int,
+        userName VARCHAR(200) NOT NULL,
         orgName VARCHAR(100) NOT NULL,
-        email VARCHAR(50) NOT NULL,
-        orgDesc VARCHAR(500) NOT NULL,
+        email VARCHAR(200) NOT NULL,
+        orgDesc VARCHAR(1500) NOT NULL,
         orgPassword varchar(255) NOT NULL,
         orgLogo VARCHAR(50),
         created_at timestamp,
         updated_at timestamp,
         orgLocation varchar(30),
         PRIMARY KEY(orgId),
-        FOREIGN KEY(userId)
-         REFERENCES users
+        FOREIGN KEY(orgId)
+         REFERENCES users(userId)
+         ON DELETE CASCADE,
+
+        FOREIGN KEY(userName)
+         REFERENCES users(userName)
+         ON DELETE CASCADE,
+
+        FOREIGN KEY(email)
+         REFERENCES users(email)
+         ON DELETE CASCADE,
+
+        FOREIGN KEY(orgPassword)
+         REFERENCES users(userPassword)
          ON DELETE CASCADE
     )";
 
-    $campaignSql = "CREATE TABLE IF NOT EXISTS campaigns (
+    $campaignSql = "CREATE TABLE IF NOT EXISTS `campaigns` (
         campaignId int NOT NULL AUTO_INCREMENT,
-        userId VARCHAR(14) NOT NULL,
-        orgId VARCHAR(14) NOT NULL,
+        userId int NOT NULL,
+        orgId int NOT NULL,
         orgName VARCHAR(20) NOT NULL,
-        email VARCHAR(30) NOT NULL,
+        email VARCHAR(200) NOT NULL,
         orgPassword varchar(255) NOT NULL,
         orgLogo VARCHAR(50),
         created_at timestamp,
@@ -53,15 +65,39 @@ if (mysqli_connect_errno())  {
         orglocation varchar(30),
         PRIMARY KEY(campaignId),
         FOREIGN KEY(userId) 
-         REFERENCES users
+         REFERENCES users(userId)
          ON DELETE CASCADE,
 
         FOREIGN KEY(orgId)
-         REFERENCES organisations
+         REFERENCES organisations(orgId)
          ON DELETE CASCADE
-)";
+    )";
 
-    $tables = [$userSql, $orgSql, $campaignSql];
+    $commentSql = "CREATE TABLE IF NOT EXISTS `comments` (
+        userId int,
+        orgId int,
+        userName VARCHAR(200) NOT NULL,
+        email VARCHAR(200) NOT NULL,
+        body VARCHAR(1000) NOT NULL,
+
+        FOREIGN KEY(userId) 
+         REFERENCES users(userId)
+         ON DELETE CASCADE,
+
+        FOREIGN KEY(orgId)
+         REFERENCES organisations(orgId)
+         ON DELETE CASCADE,
+
+        FOREIGN KEY(userName) 
+         REFERENCES users(userName)
+         ON DELETE CASCADE,
+
+        FOREIGN KEY(email)
+         REFERENCES users(email)
+         ON DELETE CASCADE
+    )";
+
+    $tables = [$userSql, $orgSql, $campaignSql, $commentSql];
     foreach($tables as $k => $sql){
         $query = @$conn->query($sql);
     

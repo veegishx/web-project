@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(!empty($_SESSION['email'])) {
+    header("location: index.php");
+} else {
+    unset($_SESSION['email']);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,7 +50,6 @@
 </head>
 
 <body>
-<?php include 'includes/header.php'; ?>
 
     <div id="registration-container">
         <div class="form-wrapper">
@@ -349,7 +356,7 @@
 
                      <div class="form-group col-md-6">
                         <label for="inputOrgDescription">Tell us a bit about your organisation</label>
-                        <textarea class="form-control" name="inputOrgDescription" rows="3" placeholder="Write a short introduction about your organisation to help your target audience know you better."></textarea>
+                        <textarea class="form-control" name="inputOrgDescription" rows="3" placeholder="Write a short introduction about your organisation to help your target audience know you better."required></textarea>
                     </div>
                 </div>
 
@@ -365,25 +372,35 @@
 
 
             <!-- User Registration Form-->
-            <form class="register" id="user-register-form" method="POST" action="authenticaton/user/process.php">
+            <form class="register" id="user-register-form" method="POST" action="authentication/user/process.php">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Email</label>
-                        <input type="email" class="form-control" id="inputEmail4" placeholder="Enter your Email" required>
+                        <input type="email" class="form-control" name="inputEmail" placeholder="Enter your Email" required>
                     </div>
 
                     <div class="form-group col-md-6">
                         <label for="inputUsername4">Username</label>
-                        <input type="text" class="form-control" id="inputUsername" placeholder="Pick a username" required>
+                        <input type="text" class="form-control" name="inputUsername" placeholder="Pick a username" required>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="inputFirstName">First Name</label>
+                        <input type="text" class="form-control" name="inputFirstName" placeholder="Enter Your First Name" required>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="inputLastName">Last Name</label>
+                        <input type="text" class="form-control" name="inputLastName" placeholder="Enter Your Last Name" required>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="inputPassword4">Password</label>
-                        <input type="password" class="form-control" id="inputPassword4" placeholder="Enter a Password" required>
+                        <label for="inputPassword">Password</label>
+                        <input type="password" class="form-control" name="inputUserPassword" placeholder="Enter a Password" required>
                     </div>
 
                     <div class="form-group col-md-6">
                         <label for="inputPassword5">Confirm Password</label>
-                        <input type="password" class="form-control" id="inputPassword5" placeholder="Re-type your Password" required>
+                        <input type="password" class="form-control" name="inputUserPassword2" placeholder="Re-type your Password" required>
                     </div>
                 </div>
 
@@ -401,6 +418,18 @@
         <button id="back-button" class="btn-back"><span class="fa fa-long-arrow-left" aria-hidden="true"></span>
             Go Back </button>
     </div>
+
+    <script>
+    $('.organisation-account').click(function() {
+        $('#org-register-form').toggle('slide', { direction: "right" }, 1000);
+        $('#user-register-form').hide();
+    });
+
+    $('.individual-account').click(function() {
+        $('#user-register-form').toggle('slide', { direction: "right" }, 1000);
+        $('#org-register-form').hide();
+    });
+    </script>
 
 </body>
 

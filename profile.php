@@ -1,3 +1,4 @@
+<?php include 'includes/functions.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,10 +48,10 @@
     <div class="top-container">
         <img src="assets/images/optimized/default-avatar.jpg" width="200px" class="rounded float-left">
         <div class="profile-info-wrapper">
-            <span>Date Joined: 04 Dec 2017</span>
+            <span>Date Joined: <?php echo getDateJoined(); ?></span>
             <span>First Name: Veegish</span>
             <span>Last Name: Ramdani</span>
-            <span>Email: veegish240@gmail.com</span>
+            <span>Email: <?php echo getEmail(); ?></span>
         </div>
     </div>
 
@@ -151,7 +152,7 @@
             </div>
 
             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                ...
+                <p><?php echo getOrgDescription() ?></p>
             </div>
 
             <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
