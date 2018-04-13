@@ -43,7 +43,6 @@
     <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
 
 </head>
-<?php include 'includes/header.php'; ?>
 <body>
 
     <div class="container-fluid">
@@ -91,49 +90,22 @@
                 </div>
 
                 <div class="browse-campaign-cards">
-                    <div class="col-sm-3 col-lg-3 campaign">
-                        <div class="overlay">
-                            <div class="funding-goal">Funding Goal: $ 130,000</div>
-                            <h2>Water Problems</h2>
-                            <p>India is currently facing a national shortage of clean drinking water</p>
-                            <a href="donation.html"><button class="fund-this-sm">Fund this project</button></a>
-                        </div>
-                        <img src="assets/images/raw/water.jpg" class="test">
-                    </div>
-
-                    <div class="col-sm-3 col-lg-3 campaign">
-                        <div class="overlay">
-                            <div class="funding-goal">Funding Goal: $ 110,000</div>
-                            <h2>Educating children of Africa
-                            </h2>
-                            <p>India is currently facing a national shortage of clean drinking water</p>
-                            <a href="donation.html"><button class="fund-this-sm">Fund this project</button></a>
-                        </div>
-                        <img src="assets/images/raw/children.jpg" class="test">
-                    </div>
-
-                    <div class="col-sm-3 col-lg-3 campaign">
-                        <div class="overlay">
-                            <div class="funding-goal">Funding Goal: $ 110,000</div>
-                            <h2>Rebuilding Gunkanjima, Nagasaki, Japan
-                            </h2>
-                            <p>India is currently facing a national shortage of clean drinking water</p>
-                            <a href="donation.html"><button class="fund-this-sm">Fund this project</button></a>
-                        </div>
-                        <img src="assets/images/raw/japan.jpg" class="test">
-                    </div>
-
-                    <div class="col-sm-3 col-lg-3 campaign">
-                        <div class="overlay">
-                            <div class="funding-goal">Funding Goal: $ 110,000</div>
-                            <h2>Protesting against Nuclear power plants
-                            </h2>
-                            <p>India is currently facing a national shortage of clean drinking water</p>
-                            <a href="donation.html"><button class="fund-this-sm">Fund this project</button></a>
-                        </div>
-                        <img src="assets/images/raw/nuclear.jpg" class="test">
-                    </div>
-
+                    <?php 
+                        include 'includes/header.php';
+                        include 'includes/functions.php';
+                        $campaigns = getAllCampaignsData();
+                        foreach($campaigns as $campaign) {
+                            echo '<div class="col-sm-3 col-lg-3 campaign">';
+                            echo '<div class="overlay">';
+                            echo '<div class="funding-goal">Funding Goal: ' . $campaign['campaignGoal'] . '</div>';
+                            echo '<h2>' . $campaign['campaignTitle'] . '</h2>';
+                            echo '<p>' . substr(strip_tags($campaign['campaignBody']), 0, 110) . '...</p>';
+                            echo "<a href='campaign.php?id=" . $campaign['campaignId'] ."'><button class='fund-this-sm'>Fund this project</button></a></br>";
+                            echo '</div>';
+                            echo '<img src="' . $campaign['campaignFeaturedImage'] . '" alt="' . $campaign['campaignTitle'] . '">';
+                            echo '</div>';
+                        }
+                    ?>                
                 </div>
             </div>
         </div>
