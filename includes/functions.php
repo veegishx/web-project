@@ -16,7 +16,22 @@ function getUserName() {
     return $username;
 }
 
+function getUserId() {
+    global $conn;
+    $email = $_SESSION['email'];
+    $query = "SELECT `userId` FROM `users` WHERE `email` = '$email'";
+    $result = $conn->query($query);
+
+    if($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $userId = $row['userId'];
+    }
+
+    return $userId;
+}
+
 function getEmail() {
+    global $conn;
     $email = $_SESSION['email'];
     return $email;
 }
@@ -33,6 +48,68 @@ function getDateJoined() {
     }
 
     return $dateJoined;
+}
+
+function getFirstName() {
+    global $conn;
+    $email = $_SESSION['email'];
+    $query = "SELECT `firstName` FROM `users` WHERE `email` = '$email'";
+    $result = $conn->query($query);
+
+    if($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $firstName = $row['firstName'];
+    }
+
+    if ($firstName == null) {
+        $data = '';
+    } else {
+        $data = $firstName;
+    }
+
+    return $data;
+}
+
+function getLastName() {
+    global $conn;
+    $email = $_SESSION['email'];
+    $query = "SELECT `lastName` FROM `users` WHERE `email` = '$email'";
+    $result = $conn->query($query);
+
+    if($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $lastName = $row['lastName'];
+    }
+
+    if ($lastName == null) {
+        $data = '';
+    } else {
+        $data = $lastName;
+    }
+
+    return $data;
+}
+
+function getOrgName() {
+    global $conn;
+    $email = $_SESSION['email'];
+    $query = "SELECT `orgName` FROM `organisations` WHERE `email` = '$email'";
+    $result = $conn->query($query);
+
+    if($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $orgName = $row['orgName'];
+    } else {
+        $orgName = '';
+    }
+
+    if ($orgName == null) {
+        $data = '';
+    } else {
+        $data = $orgName;
+    }
+
+    return $data;
 }
 
 function getOrgDescription() {
@@ -97,5 +174,25 @@ function getAllOrganisationsData() {
 
     return $rows;
 }
+
+
+function checkAccount() {
+    global $conn;
+    $email = $_SESSION['email'];
+    $query = "SELECT `*` FROM `users` WHERE `email` = '$email'";
+    $result = $conn->query($query);
+
+    $row = $result->fetch_assoc();
+    $firstName = $row['firstName'];
+
+    if ($firstName == null) {
+        $status = 1;
+    } else {
+        $status = 0;
+    }
+
+    return $status;
+}
+
 
 ?>

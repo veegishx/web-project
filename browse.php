@@ -97,7 +97,7 @@
                         foreach($campaigns as $campaign) {
                             echo '<div class="col-sm-3 col-lg-3 campaign">';
                             echo '<div class="overlay">';
-                            echo '<div class="funding-goal">Funding Goal: ' . $campaign['campaignGoal'] . '</div>';
+                            echo '<div class="funding-goal">Funding Goal: $' . $campaign['campaignGoal'] . '</div>';
                             echo '<h2>' . $campaign['campaignTitle'] . '</h2>';
                             echo '<p>' . substr(strip_tags($campaign['campaignBody']), 0, 110) . '...</p>';
                             echo "<a href='campaign.php?id=" . $campaign['campaignId'] ."'><button class='fund-this-sm'>Fund this project</button></a></br>";

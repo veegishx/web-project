@@ -54,14 +54,14 @@
     <div class="top-container">
         <img src="assets/images/optimized/default-avatar.jpg" width="200px" class="rounded float-left">
         <div class="profile-info-wrapper">
-            <span>Date Joined: <?php echo getDateJoined(); ?></span>
-            <span>First Name: Veegish</span>
-            <span>Last Name: Ramdani</span>
-            <span>Email: <?php echo getEmail(); ?></span>
+        <span>Name: <?php echo getOrgName() . getFirstName() . ' ' . getLastName(); ?></span>
+        <span>Email: <?php echo getEmail(); ?></span>
+        <span>Date Joined: <?php echo getDateJoined(); ?></span>
         </div>
     </div>
 
-    <div class="profile-container">
+    <?php if(checkAccount() == 1) { ?>
+        <div class="profile-container">
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" id="pills-account-tab" data-toggle="pill" href="#pills-account" role="tab" aria-controls="pills-account" aria-selected="true"><span class="fa fa-bullhorn" aria-hidden="true"></span> Start a Campaign
@@ -155,24 +155,6 @@
                         <button type="submit">POST</button>
                     </form>
                 </div>
-
-                <div class="col-md-4" style="display:inline-block;float:right">
-                    <div class="campaign-sidebar">
-                        <div class="campaign-sidebar-title">
-                            <h3><span class="fa fa-pencil" aria-hidden="true"></span> Organization Info</h3>
-                        </div>
-                        <div class="campaign-sidebar-body">
-                            <button class="campaign-sidebar-item">
-                                <span class="fa fa-plus" aria-hidden="true"></span> Add a Facebook link
-                            </button>
-
-                            <button class="campaign-sidebar-item">
-                                <span class="fa fa-plus" aria-hidden="true"></span> Add a Twitter handle
-                            </button>
-                        </div>
-                    </div>
-                    <button type="submit" class="publish-button">PUBLISH</button>
-                </div>
             </div>
 
             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
@@ -254,4 +236,8 @@
             }
         });
     </script>
+    <?php } else {
+        echo "<h1>USER ACCOUNT</h1>";
+    }
+    ?>
 </body>

@@ -10,7 +10,8 @@
     <!-- 3rd party libraries -->
     <!-- Loading Bootstrap 4 dependencies -->
     <script src="assets/js/popper/popper.min.js"></script>
-    <script src="assets/js/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery/jquery.js"></script>
+
 
     <!-- Loading Bootstrap 4 -->
     <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css">
@@ -44,6 +45,7 @@
 <body>
 <?php
     include 'includes/header.php';
+    include 'includes/functions.php';
     $id = $_GET['id'];
     $query = "SELECT `*` FROM `campaigns` WHERE `campaignId` = '$id'";
     $result =  $conn->query($query);
@@ -64,10 +66,124 @@
                         <img src="<?php echo $campaignImage; ?>" class="img-fluid img-campaign" alt="campaign image">
                     </div>
 
-                    <div class="campaign-main-body">
-                        <h4 class="campaign-overview">Campaign Overview</h4>
-                        <hr>
-                        <?php echo $campaignBody; ?>
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Campaign Info</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Comments</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <div class="campaign-main-body">
+                            <h4 class="campaign-overview">Campaign Overview</h4>
+                            <hr>
+                            <?php echo $campaignBody; ?>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <h1>Comments</h1>
+                        <div class="comment-form-container">
+                        <form id="frm-comment">
+                            <div class="input-row">
+                                <input type="hidden" name="name" id="commentId" value="<?php echo getUserName(); ?>" />
+                            </div>
+
+                            <div class="input-row">
+                                <input type="hidden" name="email" id="commentId" value="<?php echo getEmail(); ?>" />
+                            </div>
+
+                             <div class="input-row">
+                                <input type="hidden" name="id" id="commentId" value="<?php echo getUserId(); ?>" />
+                            </div>
+                            
+                            <div class="input-row">
+                                <textarea class="input-field" type="text" name="comment"
+                                    id="comment" placeholder="Add a Comment">  </textarea>
+                            </div>
+                            <div>
+                                <input type="button" class="btn-submit" id="submitButton"
+                                    value="Publish" />
+                                <div id="comment-message">Comments Added Successfully!</div>
+                            </div>
+
+                        </form>
+
+                        <div id="output"></div>
+<script>
+
+    $("#submitButton").click(function() {
+		$("#comment-message").css('display', 'none');
+		var str = $("#frm-comment").serialize();
+
+		$.ajax({
+			url : "comment-add.php",
+			data : str,
+			type : 'post',
+			success : function(response) {
+
+				if (response) {
+                    console.log(response);
+					$("#comment-message").css('display', 'inline-block');
+					$("#name").val("");
+					$("#comment").val("");
+					$("#commentId").val("");
+					listComment();
+				} else {
+					alert("Failed to add comments !");
+					return false;
+				}
+			}
+		});
+	});
+
+	$(document).ready(function() {
+		listComment();
+	});
+
+	function listComment() {
+		$.post("comment-list.php", function(data) {
+            var data = JSON.parse(data);
+
+            var comments = "";
+            var item = "";
+            var results = new Array();
+
+            var list = $("<ul class='outer-comment'>");
+            var item = $("<li>").html(comments);
+
+            for (var i = 0; (i < data.length); i++) {
+                var commentId = data[i]['id'];
+                parent = data[i]['parent_comment_id'];
+
+                
+                    comments = "<div class='comment-row'>"
+                            + "<div class='comment-info'><span class='commet-row-label'>from</span> <span class='posted-by'>"
+                            + data[i]['email']
+                            + " </span> <span class='commet-row-label'>at</span> <span class='posted-at'>"
+                            + data[i]['created_at']
+                            + "</span></div>"
+                            + "<div class='comment-text'>"
+                            + data[i]['body']
+                            + "</div>";
+
+                    var item = $("<li>").html(comments);
+                    list.append(item);
+                
+            }
+            $("#output").html(list);
+		});
+	}
+</script>
+
+                    </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
                     </div>
                 </section>
             </div>
