@@ -610,10 +610,6 @@ h6 {
     background: rgba(0, 0, 0, .60);
 }
 
-label {
-    border-bottom: 1px solid #FC032C;
-}
-
 .form-control-select:focus {
     border: 1px solid #FC032C;
     background: rgb(255, 255, 255);
@@ -1075,6 +1071,7 @@ button.fund-this:hover {
 }
 
 button.fund-this-sm {
+    cursor: pointer;
     border: 1px solid #FC032C;
     padding: 10px;
     border-radius: 4px;
@@ -1133,18 +1130,18 @@ button.fund-this-sm:hover~.campaign>img {
     max-width: 500px;
     min-height: 40vh;
     height: auto;
-    -moz-transform: scale(1.5, 2);
-    -webkit-transform: scale(1.5, 2);
-    transform: scale(1.5, 2);
+    -moz-transform: scale(2, 2);
+    -webkit-transform: scale(2, 2);
+    transform: scale(2, 2);
     -webkit-transition: 500ms;
     -moz-transition: 500ms;
     transition: 500ms;
 }
 
 .campaign:hover>img {
-    -moz-transform: scale(3, 4);
-    -webkit-transform: scale(3, 4);
-    transform: scale(3, 4);
+    -moz-transform: scale(3, 3);
+    -webkit-transform: scale(3, 3);
+    transform: scale(3, 3);
     -webkit-transition: 500ms;
     -moz-transition: 500ms;
     transition: 500ms;
@@ -1231,20 +1228,125 @@ button.fund-this-sm:hover~.browse-campaign-container {
 }
 
 .campaign-heading {
+    width: 400px;
+    margin-bottom: 25px;
     font-size: 30px;
     font-weight: 900;
     font-family: 'Roboto', sans-serif;
+    border: 1px solid #000000;
+}
+
+.headings {
+    display: inline-flex;
+}
+
+@media(max-width: 1280px) {
+    .headings {
+        display: inline;
+    }
 }
 
 input[class*="campaign-heading"] {
+    border: 1px solid #000000 !important;
     background: #E2E2E2;
-    border-radius: 4px;
+    border-radius: 0px;
     border: none;
+    font-size: 20px;
 }
 
 input[class*="campaign-heading"]:focus {
     background: #FFFFFF;
-    border-radius: 4px;
-    border: 1px solid #00D054;
+    border-radius: 0px;
+    border: 1px solid #007bff !important;
     align-items: center;
+}
+
+.nav-pills .nav-link {
+    border-radius: 0px !important;
+}
+
+#comment {
+    border-radius: 2px;
+    border: 2px solid #898989;
+    padding: 10px;
+    min-height: 110px;
+    width: 100%;
+    margin: 10px 0 10px 0;
+}
+
+#comment-message {
+    opacity: 0;
+    padding: 8px;
+    background-color: #0c0;
+    text-align: center;
+    border-radius: 2px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 800;
+    color: #FFF;
+    transition: 1000ms;
+}
+
+#submitButton {
+    padding: 8px;
+    border-radius: 2px;
+    border: none;
+    background-color: #0078f8;
+    color: #fff;
+    font-weight: 800;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    margin: 0 0 40px 0;
+}
+
+.outer-comment>li {
+    text-decoration: none;
+    list-style: none;
+    background-color: #dadada;
+    padding: 16px;
+    margin: 0 0 10px 0;
+    border-radius: 4px;
+}
+
+.comment-email {
+    border-radius: 2px;
+    font-size: 14px;
+}
+
+.posted-at {
+    background: #000;
+    color: #fff;
+    padding: 2px 6px;
+    font-size: 12px;
+    float: right;
+}
+
+.comment-row>img {
+    max-width: 40px;
+    border-radius: 50px;
+}
+
+h2.campaign-label {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+}
+
+.submit-campaign {
+    color: #fff;
+    background-color: #007bff;
+    border: 1px solid #007bff;
+    padding: 10px;
+    width: 100%;
+    margin-top: 10px;
+    font-weight: 800;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+}
+
+.submit-campaign:hover {
+    cursor: pointer;
+}
+
+#submitButton:hover {
+    cursor: pointer;
+    background-color: #006ee3;
 }

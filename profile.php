@@ -54,7 +54,7 @@
     <div class="top-container">
         <img src="assets/images/optimized/default-avatar.jpg" width="200px" class="rounded float-left">
         <div class="profile-info-wrapper">
-        <span>Name: <?php echo getOrgName() . getFirstName() . ' ' . getLastName(); ?></span>
+        <span><h2><?php echo getOrgName() . getFirstName() . ' ' . getLastName(); ?></h2></span>
         <span>Email: <?php echo getEmail(); ?></span>
         <span>Date Joined: <?php echo getDateJoined(); ?></span>
         </div>
@@ -68,10 +68,10 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
+                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">About Us</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Active Campaigns</a>
             </li>
         </ul>
         <div class="tab-content" id="pills-tabContent">
@@ -123,21 +123,27 @@
                     </div>
                 </div>
 
-                <div class="col-md-8" style="display:inline-block">
+                <div class="col-lg-12">
                     <form method="POST" action="campaigns/process.php">
-                        <div class="form-group col-md-6">
-                            <label for="inputCampaignTitle">Campaign Title</label>
+                        <div class="col-md-3 headings">
+                        <div class="campaign-data-block">
+                            <label for="inputCampaignTitle"><h2 class="campaign-label"><i class="fa fa-tag" aria-hidden="true"></i>
+
+ Title</h2></label>
                             <input type="text" class="campaign-heading form-control-lg" name="inputCampaignTitle" placeholder="Enter Your Campaign Title" required>
                         </div>
 
-                        <div class="form-group col-md-6">
-                            <label for="inputEmail">Campaign Goal</label>
+                        <div class="campaign-data-block">
+                            <label for="inputEmail"><h2 class="campaign-label"><i class="fa fa-usd" aria-hidden="true"></i>
+ Goal</h2></label>
                             <input type="text" class="campaign-heading form-control-lg" name="inputCampaignGoal" placeholder="Enter Your Campaign Goal" required>
                         </div>
 
-                        <div class="form-group col-md-6">
-                            <label for="inputEmail">Campaign Image</label>
-                            <input type="text" class="campaign-heading form-control-lg" name="inputCampaignImage" placeholder="Enter Your Campaign Image URL" required>
+                        <div class="campaign-data-block">
+                            <label for="inputEmail"><h2 class="campaign-label"><i class="fa fa-picture-o" aria-hidden="true"></i>
+ Cover Image</h2></label>
+                            <input type="text" class="campaign-heading form-control-lg" name="inputCampaignImage" placeholder="Enter Your Campaign Cover Image URL" required>
+                        </div>
                         </div>
 
                         <textarea id="campaign-body-editor" name="inputCampaignBody" required>
@@ -152,25 +158,30 @@
                             <h3>Or even a few links</h3>
                             <p><a href="https://facebook.com">Join us on facebook</a> & <a href="https://twitter.com">Follow us on Twitter</a> for updates!</p>
                         </textarea>
-                        <button type="submit">POST</button>
+                        <button type="submit" class="submit-campaign">Publish Campaign</button>
                     </form>
                 </div>
             </div>
 
             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                 <p><?php echo getOrgDescription(); ?></p>
-                <p>
-                    <?php
-                        $campaigns = getMyActiveCampaignsData();
-                        foreach($campaigns as $campaign) {
-                            echo "<a href='campaign.php?id=" . $campaign['campaignId'] ."'>" . $campaign['campaignTitle'] . "</a></br>";
-                        }
-                    ?>
-                </p>
             </div>
 
             <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                ...
+            <p>
+                    <?php
+                        $campaigns = getMyActiveCampaignsData();
+                        foreach($campaigns as $campaign) {
+                            echo '<div class="card">';
+                            echo '<img class="card-img-top" src="' . $campaign['campaignFeaturedImage'] . '" alt="'  . $campaign['campaignTitle'] .  '">';
+                            echo '<div class="card-body">';
+                            echo '<h4 class="card-title">'  . $campaign['campaignTitle'] . '</h4>';
+                            echo '<p class="card-text">' . substr(strip_tags($campaign['campaignBody']), 0, 110) . '...</p>';
+                            echo "<a href='campaign.php?id=" . $campaign['campaignId'] ."' class='btn btn-primary'> View campaign <span class='fa fa-chevron-right'></span></a></br>";
+                            echo '</div></div>';
+                        }
+                    ?>
+                </p>
             </div>
         </div>
     </div>

@@ -68,13 +68,12 @@
 
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Campaign Info</a>
+                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"><i class="fa fa-info-circle" aria-hidden="true"></i>
+ Campaign Info</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Comments</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false"><i class="fa fa-comments" aria-hidden="true"></i>
+ Comments</a>
                         </li>
                     </ul>
 
@@ -95,11 +94,15 @@
                             </div>
 
                             <div class="input-row">
+                                <input type="hidden" name="campaignId" id="campaignId" value="<?php echo $_GET['id'] ?>" />
+                            </div>
+
+                            <div class="input-row">
                                 <input type="hidden" name="email" id="commentId" value="<?php echo getEmail(); ?>" />
                             </div>
 
                              <div class="input-row">
-                                <input type="hidden" name="id" id="commentId" value="<?php echo getUserId(); ?>" />
+                                <input type="hidden" name="userId" id="commentId" value="<?php echo getUserId(); ?>" />
                             </div>
                             
                             <div class="input-row">
@@ -118,9 +121,7 @@
 <script>
 
     $("#submitButton").click(function() {
-		$("#comment-message").css('display', 'none');
-		var str = $("#frm-comment").serialize();
-
+        var str = $("#frm-comment").serialize();
 		$.ajax({
 			url : "comment-add.php",
 			data : str,
@@ -129,7 +130,12 @@
 
 				if (response) {
                     console.log(response);
-					$("#comment-message").css('display', 'inline-block');
+                    $("#comment-message").css("opacity", "1");
+                    $("#comment-message").css("transition", "500ms");
+                    $("#comment-message").css("display", "inline-block");
+                    setTimeout(function(){
+                        $("#comment-message").css("opacity", "0");
+                    }, 2000);
 					$("#name").val("");
 					$("#comment").val("");
 					$("#commentId").val("");
@@ -147,7 +153,8 @@
 	});
 
 	function listComment() {
-		$.post("comment-list.php", function(data) {
+        var id = document.getElementById('campaignId').value;
+		$.post("comment-list.php", {campaignId : id} ,function(data) {
             var data = JSON.parse(data);
 
             var comments = "";
@@ -162,10 +169,9 @@
                 parent = data[i]['parent_comment_id'];
 
                 
-                    comments = "<div class='comment-row'>"
-                            + "<div class='comment-info'><span class='commet-row-label'>from</span> <span class='posted-by'>"
+                    comments = "<div class='comment-row'><img src='assets/images/users/default-avatar.jpg'> <span class='comment-email'>"
                             + data[i]['email']
-                            + " </span> <span class='commet-row-label'>at</span> <span class='posted-at'>"
+                            + " </span> <span class='posted-at'><i class='fa fa-clock-o' aria-hidden='true'></i> "
                             + data[i]['created_at']
                             + "</span></div>"
                             + "<div class='comment-text'>"
@@ -182,9 +188,7 @@
 </script>
 
                     </div>
-                    </div>
-                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
-                    </div>
+                    </div>`
                 </section>
             </div>
 

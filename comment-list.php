@@ -1,8 +1,8 @@
 <?php
 require_once ("includes/config/dbconnect.php");
 require_once ("includes/functions.php");
-
-$sql = "SELECT * FROM comments ORDER BY id asc";
+$id = $_POST['campaignId']; 
+$sql = "SELECT * FROM comments WHERE campaignId = '$id' ORDER BY id desc";
 
 $result = mysqli_query($conn, $sql);
 $record_set = array();

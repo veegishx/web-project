@@ -82,6 +82,7 @@ if (mysqli_connect_errno())  {
 
     $commentSql = "CREATE TABLE IF NOT EXISTS `comments` (
         id INT NOT NULL AUTO_INCREMENT,
+        campaignId int,
         userId int,
         userName VARCHAR(200) NOT NULL,
         email VARCHAR(200) NOT NULL,
@@ -100,6 +101,10 @@ if (mysqli_connect_errno())  {
 
         FOREIGN KEY(email)
          REFERENCES users(email)
+         ON DELETE CASCADE,
+
+        FOREIGN KEY(campaignId)
+         REFERENCES campaigns(campaignId)
          ON DELETE CASCADE
     )";
 
