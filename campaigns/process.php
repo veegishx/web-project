@@ -19,12 +19,17 @@ if(isset($_POST['inputCampaignTitle']) && isset($_POST['inputCampaignBody'])) {
     $campaignBody = stripslashes($_REQUEST['inputCampaignBody']);
     $campaignBody = mysqli_real_escape_string($conn, $campaignBody);
 
-    $campaignGoal = stripslashes($_REQUEST['inputCampaignGoal']);;
-    $campaignImage = stripslashes($_REQUEST['inputCampaignImage']);;
+    $campaignGoal = stripslashes($_REQUEST['inputCampaignGoal']);
+    $campaignImage = stripslashes($_REQUEST['inputCampaignImage']);
+
+    $motivation = stripslashes($_REQUEST['motivation']);
+    $motivation = mysqli_real_escape_string($conn, $motivation);
+
+    $category = $_REQUEST['category'];
 
     $created_at = date("Y-m-d H:i:s");
 
-    $campaignSql = "INSERT into `campaigns` (campaignTitle, campaignBody, campaignGoal, campaignFeaturedImage, orgId, orgName, email, campaignStatus, created_at) VALUES ('".$campaignTitle."', '".$campaignBody."', '".$campaignGoal."', '".$campaignImage."', '".$orgId."', '".$orgName."', '".$email."', '1', '".$created_at."')";
+    $campaignSql = "INSERT into `campaigns` (campaignTitle, campaignBody, campaignGoal, campaignCategory, campaignFeaturedImage, motivationalMessage, orgId, orgName, email, campaignStatus, created_at) VALUES ('".$campaignTitle."', '".$campaignBody."', '".$campaignGoal."', '".$category."' , '".$campaignImage."', '". $motivation ."' , '".$orgId."', '".$orgName."', '".$email."', '1', '".$created_at."')";
     $result = $conn->query($campaignSql) or trigger_error("Query Failed! SQL: $campaignSql - Error: ".mysqli_error($result), E_USER_ERROR);
     if($result) {
         session_start();

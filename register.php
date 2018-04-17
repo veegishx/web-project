@@ -18,7 +18,7 @@ if(!empty($_SESSION['email'])) {
     <!-- 3rd party libraries -->
     <!-- Loading Bootstrap 4 dependencies -->
     <script src="assets/js/popper/popper.min.js"></script>
-    <script src="assets/js/jquery/jquery.min.js"></script>
+    <script src="assets/js/jquery/jquery.js"></script>
 
     <!-- Loading Bootstrap 4 -->
     <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css">
@@ -86,7 +86,7 @@ if(!empty($_SESSION['email'])) {
 
                     <div class="form-group col-md-6">
                         <label for="inputOrgEmail">Organisation Email</label>
-                        <input type="email" class="form-control" name="inputOrgEmail" placeholder="Enter Organisation Email" required>
+                        <input type="email" class="form-control" name="inputOrgEmail" id="inputOrgEmail" onblur="ajax()" placeholder="Enter Organisation Email" required>
                     </div>
 
                     <div class="form-group col-md-6">
@@ -429,6 +429,20 @@ if(!empty($_SESSION['email'])) {
         $('#user-register-form').toggle('slide', { direction: "right" }, 1000);
         $('#org-register-form').hide();
     });
+    </script>
+
+    <script>
+    function ajax() {
+        $.post( "checkuser.php", { inputOrgEmail: $("#inputOrgEmail").val() }, function (data){
+        var data = JSON.parse(data);
+        if(data=='1'){
+            swal("Error: This email already exists!");
+        } else {
+        }
+        console.log(data);
+    
+    });
+    }
     </script>
 
 </body>

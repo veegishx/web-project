@@ -1,7 +1,7 @@
 <?php
 require_once ("includes/config/dbconnect.php");
 require_once ("includes/functions.php");
-$comment = isset($_POST['comment']) ? $_POST['comment'] : "";
+$comment = mysqli_real_escape_string($conn, isset($_POST['comment'])) ? mysqli_real_escape_string($conn, $_POST['comment']) : "";
 $id = $_POST['userId'];
 $campaignId = $_POST['campaignId'];
 $username = $_POST['name'];

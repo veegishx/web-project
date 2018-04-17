@@ -158,6 +158,26 @@
                             <h3>Or even a few links</h3>
                             <p><a href="https://facebook.com">Join us on facebook</a> & <a href="https://twitter.com">Follow us on Twitter</a> for updates!</p>
                         </textarea>
+
+                        <div id="motivation-message">
+                            <h2 class="campaign-label"><i class="fa fa-envelope" aria-hidden="true"></i>
+    Add a small motivational message</h2></label>
+                            <textarea name="motivation"></textarea>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend category">
+                            <h2 class="campaign-label"><i class="fa fa-archive" aria-hidden="true"></i>Select Campaign Category</h2></label>
+                                <label class="input-group-text" for="inputGroupSelect01"><h5>Category</h5></label>
+                                <select class="custom-select" name="category" id="inputGroupSelect01">
+                                <option selected>Society</option>
+                                <option value="Education">Education</option>
+                                <option value="Environment">Environment</option>
+                                <option value="Politics">Politics</option>
+                            </select>
+                            </div>
+                            
+                        </div>
                         <button type="submit" class="submit-campaign">Publish Campaign</button>
                     </form>
                 </div>
@@ -170,7 +190,7 @@
             <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
             <p>
                     <?php
-                        $campaigns = getMyActiveCampaignsData();
+                        $campaigns = getAllCampaignsData();
                         foreach($campaigns as $campaign) {
                             echo '<div class="card">';
                             echo '<img class="card-img-top" src="' . $campaign['campaignFeaturedImage'] . '" alt="'  . $campaign['campaignTitle'] .  '">';
@@ -187,7 +207,7 @@
     </div>
     <script>
         tinymce.init({
-            selector: "textarea",
+            selector: "#campaign-body-editor",
             height: 500,
             plugins: [
                 "advlist autolink autosave link image lists charmap print preview hr anchor pagebreak",

@@ -94,117 +94,48 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <div class="card">
-                        <img class="card-img-top" src="assets/images/raw/animal-cruelty-resized.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title">End the Cruel Dog Killing Methods In Mauritius</h4>
-                            <p class="card-text">Help PETA and the International Animal Rescue end cruel dog killing techniques in Mauritius.</p>
-                            <a href="#" class="btn btn-primary">View campaign <span class="fa fa-chevron-right"></span></a>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <img class="card-img-top" src="assets/images/raw/education-resized.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title">Improve the living conditions in the suburb of Port-Louis</h4>
-                            <p class="card-text">AISEC is about to transform the lives of hundreds of people needs your support.</p>
-                            <a href="#" class="btn btn-primary">View campaign <span class="fa fa-chevron-right"></span></a>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <img class="card-img-top" src="assets/images/raw/monkey-resized.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title">Protect the monkeys of Mauritius</h4>
-                            <p class="card-text">Every year dozens of monkeys captured for scientific research abroad are treated in inhumane ways. Help put an end to this</p>
-                            <a href="#" class="btn btn-primary">View campaign <span class="fa fa-chevron-right"></span></a>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <img class="card-img-top" src="assets/images/raw/charity-resized.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title">Raise awareness about domestic violence</h4>
-                            <p class="card-text">More than 2000 people experience some form of domestic abuse yearly. Join the campaign to raise awareness about this issue.</p>
-                            <a href="#" class="btn btn-primary">View campaign <span class="fa fa-chevron-right"></span></a>
-                        </div>
-                    </div>
+                    <?php
+                        $campaigns = getAllCampaignsData();
+                        foreach(array_slice($campaigns, 0, 3) as $campaign) {
+                            echo '<div class="card">';
+                            echo '<img class="card-img-top" src="' . $campaign['campaignFeaturedImage'] . '" alt="'  . $campaign['campaignTitle'] .  '">';
+                            echo '<div class="card-body">';
+                            echo '<h4 class="card-title">'  . $campaign['campaignTitle'] . '</h4>';
+                            echo '<p class="card-text">' . substr(strip_tags($campaign['campaignBody']), 0, 110) . '...</p>';
+                            echo "<a href='campaign.php?id=" . $campaign['campaignId'] ."' class='btn btn-primary'> View campaign <span class='fa fa-chevron-right'></span></a></br>";
+                            echo '</div></div>';
+                        }
+                    ?>
                 </div>
 
                 <div class="carousel-item">
-                    <div class="card">
-                        <img class="card-img-top" src="assets/images/raw/animal-cruelty-resized.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title">End the Cruel Dog Killing Methods In Mauritius</h4>
-                            <p class="card-text">Help PETA and the International Animal Rescue end cruel dog killing techniques in Mauritius.</p>
-                            <a href="#" class="btn btn-primary">View campaign <span class="fa fa-chevron-right"></span></a>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <img class="card-img-top" src="assets/images/raw/education-resized.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title">Improve the living conditions in the suburb of Port-Louis</h4>
-                            <p class="card-text">AISEC is about to transform the lives of hundreds of people needs your support.</p>
-                            <a href="#" class="btn btn-primary">View campaign <span class="fa fa-chevron-right"></span></a>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <img class="card-img-top" src="assets/images/raw/monkey-resized.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title">Protect the monkeys of Mauritius</h4>
-                            <p class="card-text">Every year dozens of monkeys captured for scientific research abroad are treated in inhumane ways. Help put an end to this</p>
-                            <a href="#" class="btn btn-primary">View campaign <span class="fa fa-chevron-right"></span></a>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <img class="card-img-top" src="assets/images/raw/charity-resized.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title">Raise awareness about domestic violence</h4>
-                            <p class="card-text">More than 2000 people experience some form of domestic abuse yearly. Join the campaign to raise awareness about this issue.</p>
-                            <a href="#" class="btn btn-primary">View campaign <span class="fa fa-chevron-right"></span></a>
-                        </div>
-                    </div>
+                    <?php
+                        $campaigns = getAllCampaignsData();
+                        foreach(array_slice($campaigns, 3, 6) as $campaign) {
+                            echo '<div class="card">';
+                            echo '<img class="card-img-top" src="' . $campaign['campaignFeaturedImage'] . '" alt="'  . $campaign['campaignTitle'] .  '">';
+                            echo '<div class="card-body">';
+                            echo '<h4 class="card-title">'  . $campaign['campaignTitle'] . '</h4>';
+                            echo '<p class="card-text">' . substr(strip_tags($campaign['campaignBody']), 0, 110) . '...</p>';
+                            echo "<a href='campaign.php?id=" . $campaign['campaignId'] ."' class='btn btn-primary'> View campaign <span class='fa fa-chevron-right'></span></a></br>";
+                            echo '</div></div>';
+                        }
+                    ?>
                 </div>
 
                 <div class="carousel-item">
-                    <div class="card">
-                        <img class="card-img-top" src="assets/images/raw/animal-cruelty-resized.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title">End the Cruel Dog Killing Methods In Mauritius</h4>
-                            <p class="card-text">Help PETA and the International Animal Rescue end cruel dog killing techniques in Mauritius.</p>
-                            <a href="#" class="btn btn-primary">View campaign <span class="fa fa-chevron-right"></span></a>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <img class="card-img-top" src="assets/images/raw/education-resized.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title">Improve the living conditions in the suburb of Port-Louis</h4>
-                            <p class="card-text">AISEC is about to transform the lives of hundreds of people needs your support.</p>
-                            <a href="#" class="btn btn-primary">View campaign <span class="fa fa-chevron-right"></span></a>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <img class="card-img-top" src="assets/images/raw/monkey-resized.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title">Protect the monkeys of Mauritius</h4>
-                            <p class="card-text">Every year dozens of monkeys captured for scientific research abroad are treated in inhumane ways. Help put an end to this</p>
-                            <a href="#" class="btn btn-primary">View campaign <span class="fa fa-chevron-right"></span></a>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <img class="card-img-top" src="assets/images/raw/charity-resized.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title">Raise awareness about domestic violence</h4>
-                            <p class="card-text">More than 2000 people experience some form of domestic abuse yearly. Join the campaign to raise awareness about this issue.</p>
-                            <a href="#" class="btn btn-primary">View campaign <span class="fa fa-chevron-right"></span></a>
-                        </div>
-                    </div>
+                    <?php
+                        $campaigns = getAllCampaignsData();
+                        foreach(array_slice($campaigns, 6, 9) as $campaign) {
+                            echo '<div class="card">';
+                            echo '<img class="card-img-top" src="' . $campaign['campaignFeaturedImage'] . '" alt="'  . $campaign['campaignTitle'] .  '">';
+                            echo '<div class="card-body">';
+                            echo '<h4 class="card-title">'  . $campaign['campaignTitle'] . '</h4>';
+                            echo '<p class="card-text">' . substr(strip_tags($campaign['campaignBody']), 0, 110) . '...</p>';
+                            echo "<a href='campaign.php?id=" . $campaign['campaignId'] ."' class='btn btn-primary'> View campaign <span class='fa fa-chevron-right'></span></a></br>";
+                            echo '</div></div>';
+                        }
+                    ?>
                 </div>
             </div>
         </div>

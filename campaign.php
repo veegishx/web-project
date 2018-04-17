@@ -46,15 +46,29 @@
 <?php
     include 'includes/header.php';
     include 'includes/functions.php';
+
     $id = $_GET['id'];
-    $query = "SELECT `*` FROM `campaigns` WHERE `campaignId` = '$id'";
-    $result =  $conn->query($query);
+    $campaignOrganiserLogo = getAllOrganisationsData();
+    $query1 = "SELECT `*` FROM `campaigns` WHERE `campaignId` = '$id'";
+    $result =  $conn->query($query1);
 
     if($result->num_rows > 0) {
         $row = $result->fetch_assoc();
+        $orgId = $row['orgId'];
+        $campaignOrganiser = $row['orgName'];
         $campaignTitle = $row['campaignTitle'];
         $campaignBody = $row['campaignBody'];
         $campaignImage = $row['campaignFeaturedImage'];
+        $campaignMotivation = $row['motivationalMessage'];
+        if($campaignMotivation == null) {
+            $campaignMotivation = "Every penny counts. Please donate generously. We need your full support!";
+        }
+    }
+    $query2 = "SELECT `orgLogo` FROM `organisations` WHERE `orgId` = '$orgId'";
+    $result =  $conn->query($query2);
+    if($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $orgLogo = $row['orgLogo'];
     }
 ?>
     <div class="container-fluid">
@@ -196,12 +210,12 @@
                 <div class="campaign-goal">
                     <h3 class="campaign-title"><?php echo $campaignTitle; ?></h3>
                     <p class="quick-message">Help make change happen<span class="red">.</span></p>
-                    <p class="campaign-donation-message">You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. </p>
+                    <p class="campaign-donation-message"><?php echo $campaignMotivation; ?></p>
 
                     <div class="campaign-organiser-wrapper">
                         <div class="campaign-organiser-container">
-                            <img src="assets/images/raw/lbleu.png" class="organisation-avatar-sm">
-                            <h5 class="organisation-card-name">Lagon Bleu</h5>
+                            <img src="<?php echo $orgLogo; ?>" class="organisation-avatar-sm">
+                            <h5 class="organisation-card-name"><?php echo $campaignOrganiser; ?></h5>
                             <p class="verified"><span class="fa fa-check-circle-o" aria-hidden="true"></span> Verified Organisation</p>
                             <button type="button" class="btn btn-primary view-profile">View Profile</button>
                         </div>
