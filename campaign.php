@@ -102,6 +102,11 @@
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                         <h1>Comments</h1>
                         <div class="comment-form-container">
+                        <?php 
+                            if(empty($_SESSION['email'])) {
+                                echo 'You must be logged in to view comments';
+                            } else {
+                        ?>
                         <form id="frm-comment">
                             <div class="input-row">
                                 <input type="hidden" name="name" id="commentId" value="<?php echo getUserName(); ?>" />
@@ -130,8 +135,10 @@
                             </div>
 
                         </form>
+                            <?php } ?>
 
-                        <div id="output"></div>
+                            <div id="output"></div>
+
 <script>
 
     $("#submitButton").click(function() {

@@ -115,7 +115,7 @@ function getOrgName() {
 function getOrgDescription() {
     global $conn;
     $email = $_SESSION['email'];
-    $query = "SELECT `orgDesc` FROM `organisations` WHERE `email` = '$email'";
+    $query = "SELECT `*` FROM `organisations` WHERE `email` = '$email'";
     $result =  $conn->query($query);
 
     if($result->num_rows > 0) {
@@ -130,6 +130,23 @@ function getMyActiveCampaignsData() {
     global $conn;
     $email = $_SESSION['email'];
     $query = "SELECT `*` FROM `campaigns` WHERE `email` = '$email' AND  `campaignStatus` = '1'";
+    $result = $conn->query($query);
+
+    if($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $rows[] = $row;
+        }
+    } else {
+        $rows = "";
+    }
+
+    return $rows;
+}
+
+function getMyOrgData() {
+    global $conn;
+    $email = $_SESSION['email'];
+    $query = "SELECT `*` FROM `campaigns` WHERE `email` = '$email'";
     $result = $conn->query($query);
 
     if($result->num_rows > 0) {

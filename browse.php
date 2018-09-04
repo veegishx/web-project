@@ -47,6 +47,7 @@
 
     <div class="container-fluid">
         <div class="row">
+            <!--
             <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
                 <ul class="nav nav-pills flex-column">
                     <li class="nav-item">
@@ -77,8 +78,9 @@
                     </div>
                 </ul>
             </nav>
+            !-->
 
-            <div class="col-sm-3 col-lg-10 hidden-xs-down bg-faded browse-campaign-container">
+            <div class="col-mdlg-12 browse-campaign-container">
                 <h1 class="featured">Featured</h1>
                 <div class="browse-banner">
                     <div class="funding-goal">Funding Goal: $ 500,000</div>
@@ -86,7 +88,7 @@
                     <p>
                         Amid fears for the world's coral reefs, the UN World Heritage Committee has issued its most wide-ranging statement so far on protecting heritage sites from climate. But the problem doesn't end there.
                     </p>
-                    <a href="donation.html"><button class="fund-this-sm">Fund this project</button></a>
+                    <a href="http://localhost/web-project/campaign.php?id=21"><button class="fund-this-sm">Fund this project</button></a>
                 </div>
 
                 <div class="browse-campaign-cards">

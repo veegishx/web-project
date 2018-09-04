@@ -22,11 +22,11 @@ session_start();
                     <li class="nav-item">
                         <a class="nav-link" href="browse.php">Browse</a>
                     </li>
-
+<!--
                     <li class="nav-item">
                         <a class="nav-link" href="organisations.php">Organisations</a>
                     </li>
-
+-->
 
 
                     <div class="block-align-right">

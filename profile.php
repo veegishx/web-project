@@ -184,27 +184,54 @@
             </div>
 
             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                <p><?php echo getOrgDescription(); ?></p>
+                
+                <form method="POST" action="                <?php
+                    $data = getMyOrgData();
+                    foreach($data as $info) {
+                        echo "update.php?id=" . $info['orgId'] ."";
+                    }
+                ?>">
+                    <p name="newDesc" id="description"><?php echo getOrgDescription(); ?></p>
+                    <textarea type="text" name="postDesc" id="postDesc"></textarea>
+                    <button type="submit">Update profile</button>
+                    <input type="hidden" name="id" id="id" value="<?php
+                    $campaigns = getMyOrgData();
+                    foreach($campaigns as $campaign) {
+                        echo $campaign['orgId'];
+                    }
+                ?>">
+                </form>
             </div>
 
             <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
             <p>
                     <?php
-                        $campaigns = getAllCampaignsData();
-                        foreach($campaigns as $campaign) {
-                            echo '<div class="card">';
-                            echo '<img class="card-img-top" src="' . $campaign['campaignFeaturedImage'] . '" alt="'  . $campaign['campaignTitle'] .  '">';
-                            echo '<div class="card-body">';
-                            echo '<h4 class="card-title">'  . $campaign['campaignTitle'] . '</h4>';
-                            echo '<p class="card-text">' . substr(strip_tags($campaign['campaignBody']), 0, 110) . '...</p>';
-                            echo "<a href='campaign.php?id=" . $campaign['campaignId'] ."' class='btn btn-primary'> View campaign <span class='fa fa-chevron-right'></span></a></br>";
-                            echo '</div></div>';
+                        $campaigns = getMyActiveCampaignsData();
+                        if($campaigns > 0) {
+                            foreach($campaigns as $campaign) {
+                                echo '<div class="card">';
+                                echo '<img class="card-img-top" src="' . $campaign['campaignFeaturedImage'] . '" alt="'  . $campaign['campaignTitle'] .  '">';
+                                echo '<div class="card-body">';
+                                echo '<h4 class="card-title">'  . $campaign['campaignTitle'] . '</h4>';
+                                echo '<p class="card-text">' . substr(strip_tags($campaign['campaignBody']), 0, 110) . '...</p>';
+                                echo "<a href='campaign.php?id=" . $campaign['campaignId'] ."' class='btn btn-primary'> View campaign <span class='fa fa-chevron-right'></span></a></br>";
+                                echo "<a href='campaigns/delete.php?id=" . $campaign['campaignId'] ."' class='btn btn-danger'> Remove <span class='fa fa-chevron-right'></span></a></br>";
+                                echo '</div></div>';
+                            }
+                        } else {
+                            echo '<h3>You currently have no active campaigns</h3>';
                         }
                     ?>
                 </p>
             </div>
         </div>
     </div>
+    <script>
+    $("#description").on("change keyup paste", function(){
+        document.getElementById("newDesc").value = document.getElementById("description").innerHTML ;
+    })
+    
+    </script>
     <script>
         tinymce.init({
             selector: "#campaign-body-editor",
@@ -270,5 +297,17 @@
     <?php } else {
         echo "<h1>USER ACCOUNT</h1>";
     }
+    ?>
+
+    <?php
+        if(!empty($_GET['message'])) {
+            $message = $_GET['message'];
+            echo '<script>swal("Campaign Successfully Deleted!");</script>';
+        }
+
+        if(!empty($_GET['update'])) {
+            $message = $_GET['update'];
+            echo '<script>swal("Profile Successfully Updated");</script>';
+        }
     ?>
 </body>
